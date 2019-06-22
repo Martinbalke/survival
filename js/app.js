@@ -57,19 +57,17 @@ function story(){
         "lorem ipsum"
     );
 
-    for(var i = 0; i < 3; i++){
-        generateQuestion(
-            "lorem ipsum"
-        , 'bad');
+    generateQuestion(
+        "lorem ipsum"
+    , 'bad');
 
-        generateDecision(
-            "lorem ipsum"
-        , 'neutral');
+    generateDecision(
+        "lorem ipsum"
+    , 'neutral');
 
-        generateDecision(
-            "lorem ipsum"
-        , 'good');
-    }
+    generateDecision(
+        "lorem ipsum"
+    , 'good');
 
 }
 
