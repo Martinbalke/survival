@@ -2,23 +2,23 @@
 
 
 /* TODO: build nested constructor function to loop through questions and decisions */
- var choices = {
-    firstDilemma = {
-        Q1D1 = [],
-        Q1D2 = [],
-        Q1D3 = [],
-    },
-    secondDilemma = {
-        Q2D1 = [],
-        Q2D2 = [],
-        Q2D3 = [],
-    },
-    thirdDilemma = {
-        Q3D1 = [],
-        Q3D2 = [],
-        Q3D3 = [],
-    }
- };
+//  var choices = {
+//     firstDilemma = {
+//         Q1D1 = [],
+//         Q1D2 = [],
+//         Q1D3 = [],
+//     },
+//     secondDilemma = {
+//         Q2D1 = [],
+//         Q2D2 = [],
+//         Q2D3 = [],
+//     },
+//     thirdDilemma = {
+//         Q3D1 = [],
+//         Q3D2 = [],
+//         Q3D3 = [],
+//     }
+//  };
 /* console.log(decisions); */
 
 function generateStoryNode(storyNode){
@@ -81,19 +81,19 @@ function renderStory(){
     /*  */
 
     /*  */
-     generateQuestion("lorem ipsum");
+    //  generateQuestion("lorem ipsum");
 
-     generateDecision("lorem ipsum", 'bad');
-     generateDecision("lorem ipsum", 'neutral');
-     generateDecision("lorem ipsum", 'good');
+    //  generateDecision("lorem ipsum", 'bad');
+    //  generateDecision("lorem ipsum", 'neutral');
+    //  generateDecision("lorem ipsum", 'good');
     /*  */
 
     /*  */
-     generateQuestion("lorem ipsum");
+    //  generateQuestion("lorem ipsum");
 
-     generateDecision("lorem ipsum", 'bad');
-     generateDecision("lorem ipsum", 'neutral');
-     generateDecision("lorem ipsum", 'good');
+    //  generateDecision("lorem ipsum", 'bad');
+    //  generateDecision("lorem ipsum", 'neutral');
+    //  generateDecision("lorem ipsum", 'good');
     /*  */
 
 }
