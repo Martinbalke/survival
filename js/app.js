@@ -26,7 +26,7 @@ var badPoints;
 var goodPoints;
 
 function generateDecision(decision, morality){
-    var sectionEl = document.getElementById('decisions');
+    var sectionEl = document.getElementById('questions');
     var pEl = document.createElement('p');
     var decision = decision;
     pEl.innerHTML = decision;
