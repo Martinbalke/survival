@@ -1,6 +1,5 @@
 'use strict';
 
-
 function generateStoryNode(storyNode){
   var sectionEl = document.getElementById('story');
   var pEl = document.createElement('p');
@@ -28,15 +27,15 @@ function generateDecision(decision, morality){
   var morality = morality;
 
 
-    if(morality === 'good'){
-        pEl.setAttribute('id', 'question3');
-        //goodPoints++;
-    } else if(morality === 'bad'){
+    if(morality === 'bad'){
         pEl.setAttribute('id', 'question1');
         //badPoints++;
     } else if(morality === 'neutral'){
         pEl.setAttribute('id', 'question2');
         //badPoints += .5;
+    } else if(morality === 'good'){
+        pEl.setAttribute('id', 'question3');
+        //goodPoints++;
     } else{
         console.log("invalid morality");
     }
@@ -61,23 +60,27 @@ function renderStory(){
      generateDecision("lorem ipsum", 'good');
     /*  */
 
-  generateStoryNode(
-    "lorem ipsum"
-  );
-
-  generateQuestion(
-    "lorem ipsum"
-    , 'bad');
-
-  generateDecision(
-    "lorem ipsum"
-    , 'neutral');
-
-  generateDecision(
-    "lorem ipsum"
-    , 'good');
-
-
+    // TODO: if then statement depending on good/bad score
 }
 renderStory();
 
+// TODO: add event listener
+
+var onClick = document.getElementById('questions');
+onClick.addEventListener('click', handleClick);
+
+function handleClick(){
+    event.preventDefault();
+
+    if(selected === 'bad'){
+        badPoints++;
+    } else if(selected === 'neutral'){
+        badPoints += .5;
+    } else if(selected === 'good'){
+        goodPoints++;
+    } else{
+        alert("Please select one of the choices to continue.");
+    }
+
+    //var clear = document.getElementById('questions').innerHTML = "";
+}
