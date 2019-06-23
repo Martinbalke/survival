@@ -71,8 +71,6 @@ onClick.addEventListener('click', handleClick);
 function handleClick(){
     event.preventDefault();
 
-    var selected = event.target.id;
-
     if(selected === 'bad'){
         badPoints++;
     } else if(selected === 'neutral'){
