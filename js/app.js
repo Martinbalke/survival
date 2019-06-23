@@ -1,10 +1,5 @@
 'use strict';
 
-//function for generating questions
-//affect user score
-//generate three questions and assign them value
-//function for rendering questions to the dom
-//function for rendering the ending page
 
 function generateStoryNode(storyNode){
   var sectionEl = document.getElementById('story');
@@ -32,26 +27,39 @@ function generateDecision(decision, morality){
   pEl.innerHTML = decision;
   var morality = morality;
 
-  if(morality === 'good'){
-    pEl.setAttribute('id', 'question1');
-    goodPoints++;
-  } else if(morality === 'bad'){
-    pEl.setAttribute('id', 'question2');
-    badPoints++;
-  } else if(morality === 'neutral'){
-    pEl.setAttribute('id', 'question3');
-    badPoints += .5;
-  } else{
-    console.log("invalid morality");
-  }
-  sectionEl.appendChild(pEl);
+
+    if(morality === 'good'){
+        pEl.setAttribute('id', 'question3');
+        //goodPoints++;
+    } else if(morality === 'bad'){
+        pEl.setAttribute('id', 'question1');
+        //badPoints++;
+    } else if(morality === 'neutral'){
+        pEl.setAttribute('id', 'question2');
+        //badPoints += .5;
+    } else{
+        console.log("invalid morality");
+    }
+    sectionEl.appendChild(pEl);
 }
 
+/* TODO: randomize order of decisions */
 function randomizer(min, max){
   return Math.floor(Math.random() * (max - min + 1) * min);
 }
+/*  */
 
-function story(){
+function renderStory(){
+
+    generateStoryNode("lorem ipsum");
+    
+    /*  */
+     generateQuestion("lorem ipsum");
+
+     generateDecision("lorem ipsum", 'bad');
+     generateDecision("lorem ipsum", 'neutral');
+     generateDecision("lorem ipsum", 'good');
+    /*  */
 
   generateStoryNode(
     "lorem ipsum"
@@ -69,6 +77,7 @@ function story(){
     "lorem ipsum"
     , 'good');
 
-}
 
-story();
+}
+renderStory();
+
