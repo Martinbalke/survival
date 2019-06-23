@@ -1,51 +1,32 @@
 'use strict';
 
 
-/* TODO: build nested constructor function to loop through questions and decisions */
-//  var choices = {
-//     firstDilemma = {
-//         Q1D1 = [],
-//         Q1D2 = [],
-//         Q1D3 = [],
-//     },
-//     secondDilemma = {
-//         Q2D1 = [],
-//         Q2D2 = [],
-//         Q2D3 = [],
-//     },
-//     thirdDilemma = {
-//         Q3D1 = [],
-//         Q3D2 = [],
-//         Q3D3 = [],
-//     }
-//  };
-/* console.log(decisions); */
-
 function generateStoryNode(storyNode){
-    var sectionEl = document.getElementById('story');
-    var pEl = document.createElement('p');
-    var storyNode = storyNode;
-    pEl.innerHTML = storyNode;
-    sectionEl.appendChild(pEl);
+  var sectionEl = document.getElementById('story');
+  var pEl = document.createElement('p');
+  var storyNode = storyNode;
+  pEl.innerHTML = storyNode;
+  sectionEl.appendChild(pEl);
 }
 
 function generateQuestion(question){
-    var sectionEl = document.getElementById('questionPrompt');
-    var pEl = document.createElement('p');
-    var question = question;
-    pEl.innerHTML = question;
-    sectionEl.appendChild(pEl);
+  var sectionEl = document.getElementById('questionPrompt');
+  var pEl = document.createElement('p');
+  var question = question;
+  pEl.innerHTML = question;
+  sectionEl.appendChild(pEl);
 }
 
 var badPoints;
 var goodPoints;
 
 function generateDecision(decision, morality){
-    var sectionEl = document.getElementById('questions');
-    var pEl = document.createElement('p');
-    var decision = decision;
-    pEl.innerHTML = decision;
-    var morality = morality;
+  var sectionEl = document.getElementById('questions');
+  var pEl = document.createElement('p');
+  var decision = decision;
+  pEl.innerHTML = decision;
+  var morality = morality;
+
 
     if(morality === 'good'){
         pEl.setAttribute('id', 'question3');
@@ -64,7 +45,7 @@ function generateDecision(decision, morality){
 
 /* TODO: randomize order of decisions */
 function randomizer(min, max){
-    return Math.floor(Math.random() * (max - min + 1) * min);
+  return Math.floor(Math.random() * (max - min + 1) * min);
 }
 /*  */
 
@@ -80,21 +61,22 @@ function renderStory(){
      generateDecision("lorem ipsum", 'good');
     /*  */
 
-    /*  */
-    //  generateQuestion("lorem ipsum");
+  generateStoryNode(
+    "lorem ipsum"
+  );
 
-    //  generateDecision("lorem ipsum", 'bad');
-    //  generateDecision("lorem ipsum", 'neutral');
-    //  generateDecision("lorem ipsum", 'good');
-    /*  */
+  generateQuestion(
+    "lorem ipsum"
+    , 'bad');
 
-    /*  */
-    //  generateQuestion("lorem ipsum");
+  generateDecision(
+    "lorem ipsum"
+    , 'neutral');
 
-    //  generateDecision("lorem ipsum", 'bad');
-    //  generateDecision("lorem ipsum", 'neutral');
-    //  generateDecision("lorem ipsum", 'good');
-    /*  */
+  generateDecision(
+    "lorem ipsum"
+    , 'good');
+
 
 }
 renderStory();
