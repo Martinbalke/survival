@@ -29,13 +29,10 @@ function generateDecision(decision, morality){
 
     if(morality === 'bad'){
         pEl.setAttribute('id', 'question1');
-        //badPoints++;
     } else if(morality === 'neutral'){
         pEl.setAttribute('id', 'question2');
-        //badPoints += .5;
     } else if(morality === 'good'){
         pEl.setAttribute('id', 'question3');
-        //goodPoints++;
     } else{
         console.log("invalid morality");
     }
@@ -60,7 +57,6 @@ function renderStory(){
      generateDecision("lorem ipsum", 'good');
     /*  */
 
-    // TODO: if then statement depending on good/bad score
 }
 renderStory();
 
