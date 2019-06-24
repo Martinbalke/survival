@@ -77,9 +77,9 @@ body{
 	background-color: rgba(0, 0, 0, .7);
 }
 
-section#story article p {
+#story article p {
 	color: silver;
-	width: 75%;
+	width: 78%;
 	line-height: 1.3em;
 	text-align: justify;
 	padding-top: 1em;
@@ -98,7 +98,14 @@ section#story article p {
 	background-position: 0% 5%;
 	display: grid;
 	place-content: center;
+}
 
+#questionPrompt p{
+	text-align: center;
+	width: 77%;
+	color: silver;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 #questions{
