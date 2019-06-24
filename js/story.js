@@ -3,13 +3,13 @@
 var scenario = [[],[],[],[],[],[],[],[],[],[],[],[],[]];
 
 function StoryNode (morality, group, choiceText, nextGroup, promptText){
-this.group = group;
-this.morality = morality;
-this.choiceText = choiceText;
-this.nextGroup = nextGroup;
-this.promptText = promptText;
+  this.group = group;
+  this.morality = morality;
+  this.choiceText = choiceText;
+  this.nextGroup = nextGroup;
+  this.promptText = promptText;
 
-this.push(scenario[group]);
+  scenario[group].push(this);
 }
 
 new StoryNode('G', 0, `The hacker's neural implant is hacked into by an unknown source. After accessing the hacker’s com-link, the unknown source gives the hacker intel and suggests that they utilize an abandoned tunnel system that was largely forgotten. To access the tunnel system, the team must slide down a tight shaft. Do you trust the unknown source?`, 1, `The engineer shines a flashlight into the shaft and sees what looks like the floor of the tunnel. He deploys scaling equipment and descends down the shaft into the old tunnel system. After his feet hit the ground, he quickly scans the area for threats and determines that the tunnel is safe. He signals the soldier and hacker to descend the shaft.`);
