@@ -4,7 +4,7 @@ Accent: font-family: 'Oswald', sans-serif; */
 
 *{
  	color:white;
- 	font-family: 'Oswald', sans-serif; 
+ 	font-family: 'Oswald', sans-serif;
 }
 
 body{
@@ -194,5 +194,5 @@ footer p{
 	margin: 5px;
 	font-size: .7em;
 	color: rgba(255,255,255,0.4);
-	opacity: .45;
+  opacity: .45;
 }
