@@ -2,6 +2,9 @@
 /* font families MAIN: font-family: 'Raleway', sans-serif;
 Accent: font-family: 'Oswald', sans-serif; */
 
+/* elijah imported google font */
+@import url('https://fonts.googleapis.com/css?family=Orbitron&display=swap');
+
 *{
  	color:white;
  	font-family: 'Oswald', sans-serif;
@@ -78,14 +81,23 @@ body{
 	box-shadow: 1px 1px 30px 0px rgba(200, 246, 232, .4);
 	background-image: url(../img/Heroimg1.jpg);
 	background-repeat: no-repeat;
+
+/* ------------Beginning of Elijah's contribution, please delete comments as you see fit ------------ */
+
+	display: flex;
+    flex-direction: column;
+	justify-content: space-between;
+	
+/* ------------Ending of Elijah's contribution, please delete comments as you see fit ------------ */
+
 }
 
-#story article{
+#article { /*elijah deleted story to make requested changes work */
 	border-radius: 5em;
 	background-color: rgba(0, 0, 0, .7);
 }
 
-#story article p {
+#article p { /*elijah deleted story to make requested changes work */
 	color: silver;
 	width: 78%;
 	line-height: 1.3em;
@@ -196,3 +208,42 @@ footer p{
 	color: rgba(255,255,255,0.4);
   opacity: .45;
 }
+
+/* ------------Beginning of Elijah's contribution, please delete comments as you see fit ------------ */
+
+#HUD {
+	margin-bottom: 5px;
+	height: 10vh;
+	display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.class-container {
+	border: 2px dashed red;
+	width: 31%;
+	display: flex;
+	padding: 5px;
+    flex-direction: column;
+    justify-content: center;
+
+}
+.class-name {
+	margin: 0;
+	font-size: 1em;
+	font-family: 'Orbitron', sans-serif;
+	color: red;
+	/* text-align: center; */
+	text-shadow: 1px 2px 4px black;
+}
+.character-img {
+	width: 50px;
+	height: 50px;
+}
+.hearts-sprite {
+	vertical-align: top;
+	width: 50px;
+	height: 25px;
+}
+
+
+/* ------------Ending of Elijah's contribution, please delete comments as you see fit ------------ */

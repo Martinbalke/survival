@@ -8,7 +8,7 @@ All ideas are brought up in round table discussion and every person should voice
 Being mindful of other peoples opinions, encourage availibility and approachability, friendliness needs to be a major consideration in interpersonal interaction. 
 
 
-Member Contact Info Emergency Only: No contact after 12am</br>
+Member Contact Info Emergency Only: No contact after 12pm</br>
 Ryan : (706)755-0124 </br>
 Elijah: (360)584-2744 </br>
 Valerie: (206)430-3460 No Tuesday - Thursday</br>
