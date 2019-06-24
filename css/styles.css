@@ -7,7 +7,6 @@ Accent: font-family: 'Oswald', sans-serif; */
 	font-family: 'Oswald', sans-serif; 
 }
 body{
-	
 	margin-left: 20vw;
 	margin-right: 20vw;
 	background-color: black;
@@ -71,18 +70,16 @@ body{
 	box-shadow: 1px 1px 30px 0px rgba(200, 246, 232, .4);
 	background-image: url(../img/Heroimg1.jpg);
 	background-repeat: no-repeat;
-	margin: 0 auto;
 }
 
 #story article{
 	border-radius: 5em;
-	background-color: rgba(0,0,0,0.75);
-	
+	background-color: rgba(0, 0, 0, .7);
 }
 
-section#story article p {
+#story article p {
 	color: silver;
-	width: 75%;
+	width: 78%;
 	line-height: 1.3em;
 	text-align: justify;
 	padding-top: 1em;
@@ -101,7 +98,14 @@ section#story article p {
 	background-position: 0% 5%;
 	display: grid;
 	place-content: center;
+}
 
+#questionPrompt p{
+	text-align: center;
+	width: 77%;
+	color: silver;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 #questions{
