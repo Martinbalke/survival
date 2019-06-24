@@ -7,6 +7,8 @@ Accent: font-family: 'Oswald', sans-serif; */
  font-family: 'Oswald', sans-serif; 
 }
 body{
+	margin-left: 20vw;
+	margin-right: 20vw;
 	background-color: black;
 }
 #logoShape{
@@ -61,11 +63,6 @@ body{
 	text-shadow: 2px 2px 10px #F4F362 , 1px 1px 3px rgba(43,218,147,1);
 }
 
-body{
-	margin-left: 20%;
-	margin-right: 20%;
-}
-
 #story{
 	height: 50vh;
 	background-color: #333;
@@ -73,14 +70,11 @@ body{
 	box-shadow: 1px 1px 30px 0px rgba(200, 246, 232, .4);
 	background-image: url(../img/Heroimg1.jpg);
 	background-repeat: no-repeat;
-	margin-left: auto;
-	margin-right: auto;
 }
 
 #story article{
-	box-shadow: 0 0 5em black;
 	border-radius: 5em;
-	background-color: black;
+	background-color: rgba(0, 0, 0, .7);
 }
 
 section#story article p {
