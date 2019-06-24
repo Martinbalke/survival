@@ -2,10 +2,12 @@
 
 function generateStoryNode(storyNode){
   var sectionEl = document.getElementById('story');
+  var articleEl = document.createElement('article');
   var pEl = document.createElement('p');
   var storyNode = storyNode;
   pEl.innerHTML = storyNode;
-  sectionEl.appendChild(pEl);
+  articleEl.appendChild(pEl);
+  sectionEl.appendChild(articleEl);
 }
 
 function generateQuestion(question){
@@ -47,10 +49,14 @@ function randomizer(min, max){
 
 function renderStory(){
 
-    generateStoryNode("lorem ipsum");
+    generateStoryNode(
+        "The year is 2099. You are leading a team of mercenaries recruited by the notorious crime syndicate known as \"Aku Watashi.\" They are on a high-stakes mission to steal a fusion core that is worth billions on the black market. You must guide the team utilizing the skill sets of a soldier, an engineer, and a hacker to make your way through a high-security facility. This will likely turn into a fight for survival as you will encounter unpredictable situations and unknown enemy opposition. Smart decision making is required to help this team make it safely through the facility with the core intact."
+    );
     
     /*  */
-     generateQuestion("lorem ipsum");
+     generateQuestion(
+         "Improvise break-in procedure: Scanners have picked up a security force that has set up a perimeter around the chosen point of entry into the facility. A new break-in plan will have to be improvised."
+     );
 
      generateDecision("lorem ipsum", 'bad');
      generateDecision("lorem ipsum", 'neutral');
