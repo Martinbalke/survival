@@ -58,9 +58,15 @@ function renderStory(){
          "Improvise break-in procedure: Scanners have picked up a security force that has set up a perimeter around the chosen point of entry into the facility. A new break-in plan will have to be improvised."
      );
 
-     generateDecision("lorem ipsum", 'bad');
-     generateDecision("lorem ipsum", 'neutral');
-     generateDecision("lorem ipsum", 'good');
+     generateDecision(
+         "The soldier is equipped with a full arsenal of weapons along with several grenades. Let the soldier lead the team into a potential high-stakes shootout.",
+     'bad');
+     generateDecision(
+         "The engineer carries a cloaking device that will allow the team to enter stealthily. Utilize this device.", 
+     'neutral');
+     generateDecision(
+         "The hacker's neural implant is hacked into by an unknown source. After accessing the hacker’s com-link, Unknown gives the hacker intel and suggests that they utilize a long forgotten and abandoned tunnel system. To access the tunnel system, the team must slide down a tight shaft. Trust Unknown and slide down the tunnel shaft.", 
+     'good');
     /*  */
 
 }

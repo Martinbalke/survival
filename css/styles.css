@@ -117,6 +117,15 @@ body{
 	background-image: url(../img/photo-1490971588422-52f6262a237a.jpeg);
 	
 }
+
+#questions p{
+	color: silver;
+	line-height: 1.5em;
+	text-align: justify;
+	padding-left: 1.5em;
+	padding-right: 1.5em;
+}
+
 #question1{
 	background-image: url(../img/promptbackground.jpeg);
 	background-position: 0% 10%;
