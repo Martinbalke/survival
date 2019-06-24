@@ -1,16 +1,77 @@
-<<<<<<< HEAD
-=======
 'use strict';
 
+/* ------------Beginning of Elijah's contribution, please delete comments as you see fit ------------ */
+
+var teamMembers = []; // array that stores all Characters with their corresponding object properties
+
+function Character(className) { // constructor function for game characters
+  this.className = className;
+  this.avatarFilePath = `./img/${this.className}.jpg`; // img should be named by className for filepath to work
+  this.heartSpriteFilePath = `./img/${this.heartSprite}.png`;
+  this.heartsNum = 2;
+  teamMembers.push(this);
+}
+
+new Character('soldier');
+new Character('engineer');
+new Character('hacker');
+
+function renderCharacters() {
+  for(var i = 0; i < teamMembers.length; i++) {
+    var characterImage = document.getElementsByClassName('character-img'); // gets element, can be moved to global
+    characterImage[i].src = teamMembers[i].avatarFilePath; // renders avatar jpg to index.html
+    var className = document.getElementsByClassName('class-name'); // gets element, can be moved to global
+    className[i].textContent = teamMembers[i].className; // renders className index.html
+    var heartsSprite = document.getElementsByClassName('hearts-sprite'); // gets element, can be moved to global
+    heartsSprite[i].src = teamMembers[i].heartsSpriteFilePath; // renders hearts sprite png to index.html
+  }
+}
+
+function renderDamage(className) { // parameter is string with class name of character that should sustain damage
+  for(var i = 0; i < teamMembers.length; i ++) { // loops through teamMembers Array
+    if(className === teamMembers[i].className) { // checks if there is a matching character
+      if(teamMembers[i].heartsNum > 0 ) { // if the character is alive
+        if(className === 'soldier') { // change the sprite position
+          var soldierHeartsSprite = document.getElementById('soldier-heart');
+          soldierHeartsSprite.style.backgroundPosition = 'x - 10px';
+        } else if(className === 'engineer') { // change the sprite position
+          var engineerHeartsSprite = document.getElementById('engineer-heart');
+          engineerHeartsSprite.style.backgroundPosition = 'x - 10px';
+        } else if(className === 'hacker') { // change the sprite position
+          var hackerHeartsSprite = document.getElementById('hacker-heart');
+          hackerHeartsSprite.style.backgroundPosition = 'x - 10px';
+        }
+        teamMembers[i].heartsNum.push(-1); // subtract health from the character
+      }
+      if(teamMembers[i].heartsNum === 0 ) { // renders unique style for when the character dies
+        if(className === 'soldier') {
+          var soldierContainer = document.getElementById('soldier-container');
+          soldierContainer .style.display = 'none';
+        } else if(className === 'engineer') {
+          var engineerContainer  = document.getElementById('engineer-container');
+          engineerContainer .style.display = 'none';
+        } else if(className === 'hacker') {
+          var hackerContainer  = document.getElementById('hacker-container');
+          hackerContainer.style.display = 'none';
+        }
+      }
+    }
+  }
+}
+
 function generateStoryNode(storyNode){
-  var sectionEl = document.getElementById('story');
-  var articleEl = document.createElement('article');
+//   var sectionEl = document.getElementById('story'); elijah wants deletion of code
+  var articleEl = document.getElementById('article');
   var pEl = document.createElement('p');
   var storyNode = storyNode;
   pEl.innerHTML = storyNode;
   articleEl.appendChild(pEl);
-  sectionEl.appendChild(articleEl);
+//   sectionEl.appendChild(articleEl); elijah wants deletion of code
 }
+
+renderCharacters();
+
+/* ------------Ending of Elijah's contribution, please delete comments as you see fit ------------ */
 
 function generateQuestion(question){
   var sectionEl = document.getElementById('questionPrompt');
@@ -94,4 +155,3 @@ function handleClick(){
 
     //var clear = document.getElementById('questions').innerHTML = "";
 }
->>>>>>> 9fe60e2050b4752f2b68c58742d072565c13a57f
