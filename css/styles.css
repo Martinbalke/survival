@@ -78,9 +78,11 @@ body{
 	height: 50vh;
 	background-color: #333;
 	margin-bottom: 5px;
+	background-size: 100%;
 	box-shadow: 1px 1px 30px 0px rgba(200, 246, 232, .4);
 	background-image: url(../img/Heroimg1.jpg);
 	background-repeat: no-repeat;
+
 
 /* ------------Beginning of Elijah's contribution, please delete comments as you see fit ------------ */
 
