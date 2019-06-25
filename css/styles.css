@@ -216,13 +216,15 @@ footer p{
 #HUD {
 	margin-bottom: 5px;
 	height: 10vh;
+	margin: 5px;
 	display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 .class-container {
 	border: 2px dashed red;
-	width: 31%;
+	margin: 0 5px;
+	width: 32vw;
 	display: flex;
 	padding: 5px;
     flex-direction: column;
