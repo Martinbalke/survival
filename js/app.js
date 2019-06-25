@@ -3,7 +3,13 @@
 /* ------------Beginning of Elijah's contribution, please delete comments as you see fit ------------ */
 
 var teamMembers = []; // array that stores all Characters with their corresponding object properties
-var classStatus = document.getElementsByClassName('class-status'); 
+var classContainer = document.getElementsByClassName('class-container');
+var classNames = document.getElementsByClassName('class-name');
+var characterImg = document.getElementsByClassName('character-img');
+var characterBio = document.getElementsByClassName('character-bio');
+var characterBioDetails = document.getElementsByClassName('character-bio-details');
+var classStatus = document.getElementsByClassName('class-status');
+var heartsSprite = document.getElementsByClassName('hearts-sprite');
 
 function Character(className, name, gender, age, analysis) { // constructor function for game characters
   this.className = className;
@@ -32,15 +38,12 @@ function capitalizeFirstLetter(string) { // capitalizes the first letter of a st
 
 function renderCharacters() {
   for(var i = 0; i < teamMembers.length; i++) {
-    var characterImage = document.getElementsByClassName('character-img'); // gets element, can be moved to global
-    characterImage[i].src = teamMembers[i].avatarFilePath; // renders avatar jpg to index.html
-    var className = document.getElementsByClassName('class-name'); // gets element, can be moved to global
-    className[i].textContent = teamMembers[i].hudClassName; // renders className index.html
-    var characterBio = document.getElementsByClassName('character-bio'); // gets element, can be moved to global
+    characterImg[i].src = teamMembers[i].avatarFilePath; // renders avatar jpg to index.html
+    classNames[i].textContent = teamMembers[i].hudClassName; // renders className index.html
     characterBio[i].textContent = 'Bio-Scan'; // renders className index.html
-    var characterBioDetails = document.getElementsByClassName('character-bio-details'); // gets element, can be moved to global
     characterBioDetails[i].textContent = teamMembers[i].bio; // renders className index.html
     classStatus[i].textContent = 'Active';
+    heartsSprite[i].src = teamMembers[i].heartSpriteFilePath;
   }
 }
 
@@ -50,35 +53,21 @@ function renderDamage(className) { // parameter is string with class name of cha
       console.log(className);
       console.log(teamMembers[i].className);
       if(teamMembers[i].heartsNum > 0 ) { // if the character is alive
-        console.log(teamMembers[i].heartsNum);
-        if(className === 'soldier') { // change the sprite position
-          var soldierHeartsSprite = document.getElementById('soldier-heart'); // gets element, can be moved to global
-          soldierHeartsSprite.style.backgroundPositionX = '-29px';
-          classStatus[i].textContent = 'Injured';
-        } else if(className === 'engineer') { // change the sprite position
-          var engineerHeartsSprite = document.getElementById('engineer-heart'); // gets element, can be moved to global
-          engineerHeartsSprite.style.backgroundPositionX = '-29px';
-          classStatus[i].textContent = 'Injured';
-        } else if(className === 'hacker') { // change the sprite position
-          var hackerHeartsSprite = document.getElementById('hacker-heart'); // gets element, can be moved to global
-          hackerHeartsSprite.style.backgroundPositionX = '-29px';
-          classStatus[i].textContent = 'Injured';
-        }
+        heartsSprite[i].src = './img/heartSpriteInjured.png';
+        classStatus[i].textContent = 'Injured';
         teamMembers[i].heartsNum --; // subtract health from the character
-        console.log(teamMembers[i].heartsNum);
-        console.log(soldierHeartsSprite.style.backgroundPosition);
       }
       if(teamMembers[i].heartsNum === 0 ) { // renders unique style for when the character dies
-        if(className === 'soldier') {
-          var soldierContainer = document.getElementById('soldier-container'); // gets element, can be moved to global
-          soldierContainer.style.display = 'none';
-        } else if(className === 'engineer') {
-          var engineerContainer  = document.getElementById('engineer-container'); // gets element, can be moved to global
-          engineerContainer.style.display = 'none';
-        } else if(className === 'hacker') {
-          var hackerContainer  = document.getElementById('hacker-container'); // gets element, can be moved to global
-          hackerContainer.style.display = 'none';
-        }
+        classContainer[i].style.backgroundColor = 'rgba(50, 50, 50, 0.4)';
+        classContainer[i].style.borderColor = 'rgb(150, 150, 150)';
+        heartsSprite[i].src = './img/heartSpriteKilled.png';
+        classNames[i].style.color = 'rgb(150, 150, 150)';
+        characterImg[i].src = `./img/${className}Killed.jpg`;
+        characterImg[i].style.borderColor = 'rgb(150, 150, 150)';
+        characterBio[i].style.color = 'rgb(150, 150, 150)';
+        characterBioDetails[i].style.color = 'rgb(150, 150, 150)';
+        classStatus[i].textContent = 'Killed';
+        classStatus[i].style.color = 'rgb(150, 150, 150)';
       }
     }
   }
@@ -96,6 +85,8 @@ function generateStoryNode(storyNode){
 
 renderCharacters();
 renderDamage('soldier');
+renderDamage('engineer');
+renderDamage('engineer');
 
 /* ------------Ending of Elijah's contribution, please delete comments as you see fit ------------ */
 

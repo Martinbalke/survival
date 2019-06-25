@@ -277,10 +277,8 @@ footer p{
 }
 .hearts-sprite {
 	margin: 0 -5px 0 0;
-	background-position-x: -4px;
-	background-image: url(../img/heartSprite.png);
 	vertical-align: top;
-	width: 190px;
+	width: 50px;
 	height: 25px;
 }
 
