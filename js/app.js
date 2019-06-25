@@ -3,6 +3,7 @@
 /* ------------Beginning of Elijah's contribution, please delete comments as you see fit ------------ */
 
 var teamMembers = []; // array that stores all Characters with their corresponding object properties
+var classStatus = document.getElementsByClassName('class-status'); 
 
 function Character(className, name, gender, age, analysis) { // constructor function for game characters
   this.className = className;
@@ -39,34 +40,41 @@ function renderCharacters() {
     characterBio[i].textContent = 'Bio-Scan'; // renders className index.html
     var characterBioDetails = document.getElementsByClassName('character-bio-details'); // gets element, can be moved to global
     characterBioDetails[i].textContent = teamMembers[i].bio; // renders className index.html
-    var classStatus = document.getElementsByClassName('class-status'); // gets element, can be moved to global
-    classStatus[i].textContent = 'Active'; // renders className index.html
+    classStatus[i].textContent = 'Active';
   }
 }
 
 function renderDamage(className) { // parameter is string with class name of character that should sustain damage
   for(var i = 0; i < teamMembers.length; i ++) { // loops through teamMembers Array
     if(className === teamMembers[i].className) { // checks if there is a matching character
+      console.log(className);
+      console.log(teamMembers[i].className);
       if(teamMembers[i].heartsNum > 0 ) { // if the character is alive
+        console.log(teamMembers[i].heartsNum);
         if(className === 'soldier') { // change the sprite position
           var soldierHeartsSprite = document.getElementById('soldier-heart'); // gets element, can be moved to global
-          soldierHeartsSprite.style.backgroundPosition = 'x - 10px';
+          soldierHeartsSprite.style.backgroundPositionX = '-29px';
+          classStatus[i].textContent = 'Injured';
         } else if(className === 'engineer') { // change the sprite position
           var engineerHeartsSprite = document.getElementById('engineer-heart'); // gets element, can be moved to global
-          engineerHeartsSprite.style.backgroundPosition = 'x - 10px';
+          engineerHeartsSprite.style.backgroundPositionX = '-29px';
+          classStatus[i].textContent = 'Injured';
         } else if(className === 'hacker') { // change the sprite position
           var hackerHeartsSprite = document.getElementById('hacker-heart'); // gets element, can be moved to global
-          hackerHeartsSprite.style.backgroundPosition = 'x - 10px';
+          hackerHeartsSprite.style.backgroundPositionX = '-29px';
+          classStatus[i].textContent = 'Injured';
         }
-        teamMembers[i].heartsNum.push(-1); // subtract health from the character
+        teamMembers[i].heartsNum --; // subtract health from the character
+        console.log(teamMembers[i].heartsNum);
+        console.log(soldierHeartsSprite.style.backgroundPosition);
       }
       if(teamMembers[i].heartsNum === 0 ) { // renders unique style for when the character dies
         if(className === 'soldier') {
           var soldierContainer = document.getElementById('soldier-container'); // gets element, can be moved to global
-          soldierContainer .style.display = 'none';
+          soldierContainer.style.display = 'none';
         } else if(className === 'engineer') {
           var engineerContainer  = document.getElementById('engineer-container'); // gets element, can be moved to global
-          engineerContainer .style.display = 'none';
+          engineerContainer.style.display = 'none';
         } else if(className === 'hacker') {
           var hackerContainer  = document.getElementById('hacker-container'); // gets element, can be moved to global
           hackerContainer.style.display = 'none';
@@ -87,6 +95,7 @@ function generateStoryNode(storyNode){
 }
 
 renderCharacters();
+renderDamage('soldier');
 
 /* ------------Ending of Elijah's contribution, please delete comments as you see fit ------------ */
 

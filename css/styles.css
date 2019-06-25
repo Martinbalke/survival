@@ -222,6 +222,7 @@ footer p{
     justify-content: space-between;
 }
 .class-container {
+	background-color: rgba(100, 0, 0, 0.4);
 	border: 1.5px dashed red;
 	margin: 0 5px;
 	width: 32vw;
@@ -275,6 +276,7 @@ footer p{
 	height: 50px;
 }
 .hearts-sprite {
+	margin: 0 -5px 0 0;
 	background-position-x: -4px;
 	background-image: url(../img/heartSprite.png);
 	vertical-align: top;
