@@ -13,6 +13,7 @@ function StoryNode (morality, group, choiceText, nextGroup, promptText){
   scenario[group].push(this);
 }
 
+
 new StoryNode('G', 0, `The hacker's neural implant is hacked into by an unknown source. After accessing the hacker’s com-link, the unknown source gives the hacker intel and suggests that they utilize an abandoned tunnel system that was largely forgotten. To access the tunnel system, the team must slide down a tight shaft. Do you trust the unknown source?`, 3, `The engineer shines a flashlight into the shaft and sees what looks like the floor of the tunnel. He deploys scaling equipment and descends down the shaft into the old tunnel system. After his feet hit the ground, he quickly scans the area for threats and determines that the tunnel is safe. He signals the soldier and hacker to descend the shaft.`);
 
 new StoryNode('N', 0, `The engineer carries a cloaking device that will allow the team to enter stealthily.  Do you utilize the device?`, 2, `The engineer activates the cloaking device but reminds the team that the device was only designed to cloak one individual, and that extending the cloaking field to the rest of the team would overload the device’s refractor coil. The team manages to sneak past the security force while undetected, but the engineer suffers half damage as the device overheats, causing second degree burns.`);
