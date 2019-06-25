@@ -5,6 +5,17 @@ Accent: font-family: 'Oswald', sans-serif; */
 /* elijah imported google font */
 @import url('https://fonts.googleapis.com/css?family=Orbitron&display=swap');
 
+@keyframes alert1 { 
+    0% { color: red }
+    50% { color: white }
+    100% { color: red }
+}
+@keyframes alert2 { 
+    0% { color: red }
+    50% { color: white }
+    100% { color: red }
+}
+
 *{
  	color:white;
  	font-family: 'Oswald', sans-serif;

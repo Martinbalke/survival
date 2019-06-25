@@ -55,6 +55,8 @@ function renderDamage(className) { // parameter is string with class name of cha
       if(teamMembers[i].heartsNum > 0 ) { // if the character is alive
         heartsSprite[i].src = './img/heartSpriteInjured.png';
         classStatus[i].textContent = 'Injured';
+        classStatus[i].style.animation = 'alert1 0.5s';
+        classStatus[i].style.animationIterationCount = 'infinite';
         teamMembers[i].heartsNum --; // subtract health from the character
       }
       if(teamMembers[i].heartsNum === 0 ) { // renders unique style for when the character dies
@@ -64,9 +66,12 @@ function renderDamage(className) { // parameter is string with class name of cha
         classNames[i].style.color = 'rgb(150, 150, 150)';
         characterImg[i].src = `./img/${className}Killed.jpg`;
         characterImg[i].style.borderColor = 'rgb(150, 150, 150)';
+        characterBio[i].textContent = 'Offline';
         characterBio[i].style.color = 'rgb(150, 150, 150)';
         characterBioDetails[i].style.color = 'rgb(150, 150, 150)';
         classStatus[i].textContent = 'Killed';
+        classStatus[i].style.animation = '';
+        classStatus[i].style.animationIterationCount = '';
         classStatus[i].style.color = 'rgb(150, 150, 150)';
       }
     }
