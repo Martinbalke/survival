@@ -77,6 +77,7 @@ function renderDamage(className) { // parameter is string with class name of cha
       console.log(teamMembers[i].className);
       if(teamMembers[i].heartsNum > 0 ) { // if the character is alive
         heartsSprite[i].src = './img/heartSpriteInjured.png';
+        characterImg[i].src = `./img/${className}Injured.gif`;
         classStatus[i].textContent = 'Injured';
         classStatus[i].style.animation = 'alert1 0.5s';
         classStatus[i].style.animationIterationCount = 'infinite';
@@ -87,7 +88,7 @@ function renderDamage(className) { // parameter is string with class name of cha
         classContainer[i].style.borderColor = 'rgb(150, 150, 150)';
         heartsSprite[i].src = './img/heartSpriteKilled.png';
         classNames[i].style.color = 'rgb(150, 150, 150)';
-        characterImg[i].src = `./img/${className}Killed.jpg`;
+        characterImg[i].src = './img/whiteNoise.gif';
         characterImg[i].style.borderColor = 'rgb(150, 150, 150)';
         characterBio[i].textContent = 'Offline';
         characterBio[i].style.color = 'rgb(150, 150, 150)';
