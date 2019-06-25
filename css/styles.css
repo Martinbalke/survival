@@ -230,6 +230,7 @@ footer p{
 	font-family: 'Orbitron', sans-serif;
 	color: red;
 	text-shadow: 1px 2px 4px black;
+	opacity: 0.8;
 }
 
 #HUD {
@@ -238,7 +239,8 @@ footer p{
 	margin: 5px;
 	display: flex;
     flex-direction: row;
-    justify-content: space-between;
+	justify-content: space-between;
+	opacity: 0.8;
 }
 .class-container {
 	background-color: rgba(100, 0, 0, 0.4);
