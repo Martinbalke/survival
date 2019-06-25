@@ -4,18 +4,26 @@
 
 var teamMembers = []; // array that stores all Characters with their corresponding object properties
 
-function Character(className) { // constructor function for game characters
+function Character(className, name, gender, age, analysis) { // constructor function for game characters
   this.className = className;
-  this.hudClassName = `Class: ${capitalizeFirstLetter(className)}`;
+  this.name = name;
+  this.age = age;
+  this.gender = gender;
+  this.bio =
+    `Name:${capitalizeFirstLetter(name)}` +
+    `Gender: ${capitalizeFirstLetter(gender)}` +
+    `Age: ${age}` +
+    `Analysis: ${analysis}`;
+  this.hudClassName = `${capitalizeFirstLetter(className)}`;
   this.avatarFilePath = `./img/${this.className}.jpg`; // img should be named by className for filepath to work
-  this.heartSpriteFilePath = `./img/${this.heartSprite}.png`;
+  this.heartSpriteFilePath = './img/heartSprite.png';
   this.heartsNum = 2;
   teamMembers.push(this);
 }
 
-new Character('soldier');
-new Character('engineer');
-new Character('hacker');
+new Character('soldier', 'eiji', 'male', '29', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Posuere sollicitudin aliquam ultrices sagittis orci a scelerisque tincidunt vitae.');
+new Character('engineer', 'naruko', 'male', '32', 'Venenatis tellus in metus vulputate eu scelerisque felis imperdiet proin. Imperdiet sed euismod nisi porta lorem mollis. Sapien pellentesque habitant morbi tristique senectus et netus et malesuada.');
+new Character('hacker', 'yuri', 'female', '19', 'Sit amet consectetur adipiscing elit ut aliquam purus sit amet. Ullamcorper eget nulla facilisi etiam. Mattis vulputate enim nulla aliquet porttitor lacus luctus. Convallis convallis tellus id interdum.');
 
 function capitalizeFirstLetter(string) { // capitalizes the first letter of a string
   return string.charAt(0).toUpperCase() + string.slice(1);
@@ -27,8 +35,12 @@ function renderCharacters() {
     characterImage[i].src = teamMembers[i].avatarFilePath; // renders avatar jpg to index.html
     var className = document.getElementsByClassName('class-name'); // gets element, can be moved to global
     className[i].textContent = teamMembers[i].hudClassName; // renders className index.html
-    var heartsSprite = document.getElementsByClassName('hearts-sprite'); // gets element, can be moved to global
-    heartsSprite[i].src = teamMembers[i].heartsSpriteFilePath; // renders hearts sprite png to index.html
+    var characterBio = document.getElementsByClassName('character-bio'); // gets element, can be moved to global
+    characterBio[i].textContent = 'Bio-Scan'; // renders className index.html
+    var characterBioDetails = document.getElementsByClassName('character-bio-details'); // gets element, can be moved to global
+    characterBioDetails[i].textContent = teamMembers[i].bio; // renders className index.html
+    var classStatus = document.getElementsByClassName('class-status'); // gets element, can be moved to global
+    classStatus[i].textContent = 'Active'; // renders className index.html
   }
 }
 

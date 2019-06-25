@@ -222,30 +222,63 @@ footer p{
     justify-content: space-between;
 }
 .class-container {
-	border: 2px dashed red;
+	border: 1.5px dashed red;
 	margin: 0 5px;
 	width: 32vw;
 	display: flex;
 	padding: 5px;
     flex-direction: column;
     justify-content: center;
-
+	overflow: hidden;
+}
+.HUD-info {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.HUD-imgs {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
 }
 .class-name {
 	margin: 0;
-	font-size: 1em;
+	font-size: 0.8em;
 	font-family: 'Orbitron', sans-serif;
 	color: red;
-	/* text-align: center; */
+	text-shadow: 1px 2px 4px black;
+}
+.character-bio {
+	margin: 0;
+	font-size: 0.8em;
+	font-family: 'Orbitron', sans-serif;
+	color: red;
+	text-shadow: 1px 2px 4px black;
+}
+.character-bio-details {
+	margin: 0 5px;
+	font-size: 0.25em;
+	font-family: 'Orbitron', sans-serif;
+	color: red;
+	text-shadow: 1px 2px 4px black;
+}
+.class-status {
+	margin: 0;
+	font-size: 0.8em;
+	font-family: 'Orbitron', sans-serif;
+	color: red;
 	text-shadow: 1px 2px 4px black;
 }
 .character-img {
+	border: 1.5px solid red;
 	width: 50px;
 	height: 50px;
 }
 .hearts-sprite {
+	background-position-x: -4px;
+	background-image: url(../img/heartSprite.png);
 	vertical-align: top;
-	width: 50px;
+	width: 190px;
 	height: 25px;
 }
 
