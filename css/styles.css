@@ -224,6 +224,14 @@ footer p{
 
 /* ------------Beginning of Elijah's contribution, please delete comments as you see fit ------------ */
 
+#current-time {
+	margin: 0 0 0 10px;
+	font-size: 0.8em;
+	font-family: 'Orbitron', sans-serif;
+	color: red;
+	text-shadow: 1px 2px 4px black;
+}
+
 #HUD {
 	margin-bottom: 5px;
 	height: 10vh;

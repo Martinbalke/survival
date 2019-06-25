@@ -10,6 +10,7 @@ var characterBio = document.getElementsByClassName('character-bio');
 var characterBioDetails = document.getElementsByClassName('character-bio-details');
 var classStatus = document.getElementsByClassName('class-status');
 var heartsSprite = document.getElementsByClassName('hearts-sprite');
+var date = document.getElementById('current-time');
 
 function Character(className, name, gender, age, analysis) { // constructor function for game characters
   this.className = className;
@@ -34,6 +35,28 @@ new Character('hacker', 'yuri', 'female', '19', 'Sit amet consectetur adipiscing
 
 function capitalizeFirstLetter(string) { // capitalizes the first letter of a string
   return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+function renderDateTime() {
+  var today = new Date();
+  var hour = today.getHours();
+  var minute = today.getMinutes();
+  var second = today.getSeconds();
+  var session = 'AM';
+  if(hour === 0){
+    hour = 12;
+  }
+  if(hour > 12){
+    hour = hour - 12;
+    session = 'PM';
+  }
+  hour = (hour < 10) ? '0' + hour : hour;
+  minute = (minute < 10) ? '0' + minute : minute;
+  second = (second < 10) ? '0' + second : second;
+  var string = `Date: ${(today.getMonth()+1)}/${today.getDate()}/${2099} Time: ${hour}:${minute}:${second}:${session}`;
+  date.innerText = string;
+  date.textContent = string;
+  setTimeout(renderDateTime, 1000);
 }
 
 function renderCharacters() {
@@ -89,7 +112,8 @@ function generateStoryNode(storyNode){
 }
 
 renderCharacters();
-renderDamage('soldier');
+renderDateTime();
+renderDamage('hacker');
 renderDamage('engineer');
 renderDamage('engineer');
 
@@ -121,7 +145,7 @@ function generateDecision(decision, morality){
   } else if(morality === 'good'){
     pEl.setAttribute('id', 'question3');
   } else{
-    console.log("invalid morality");
+    console.log('invalid morality');
   }
   sectionEl.appendChild(pEl);
 }
@@ -135,22 +159,22 @@ function randomizer(min, max){
 function renderStory(){
 
   generateStoryNode(
-    "The year is 2099. You are leading a team of mercenaries recruited by the notorious crime syndicate known as \"Aku Watashi.\" They are on a high-stakes mission to steal a fusion core that is worth billions on the black market. You must guide the team utilizing the skill sets of a soldier, an engineer, and a hacker to make your way through a high-security facility. This will likely turn into a fight for survival as you will encounter unpredictable situations and unknown enemy opposition. Smart decision making is required to help this team make it safely through the facility with the core intact."
+    'The year is 2099. You are leading a team of mercenaries recruited by the notorious crime syndicate known as "Aku Watashi." They are on a high-stakes mission to steal a fusion core that is worth billions on the black market. You must guide the team utilizing the skill sets of a soldier, an engineer, and a hacker to make your way through a high-security facility. This will likely turn into a fight for survival as you will encounter unpredictable situations and unknown enemy opposition. Smart decision making is required to help this team make it safely through the facility with the core intact.'
   );
     
   /*  */
   generateQuestion(
-    "Improvise break-in procedure: Scanners have picked up a security force that has set up a perimeter around the chosen point of entry into the facility. A new break-in plan will have to be improvised."
+    'Improvise break-in procedure: Scanners have picked up a security force that has set up a perimeter around the chosen point of entry into the facility. A new break-in plan will have to be improvised.'
   );
 
   generateDecision(
-    "The soldier is equipped with a full arsenal of weapons along with several grenades. Let the soldier lead the team into a potential high-stakes shootout.",
+    'The soldier is equipped with a full arsenal of weapons along with several grenades. Let the soldier lead the team into a potential high-stakes shootout.',
     'bad');
   generateDecision(
-    "The engineer carries a cloaking device that will allow the team to enter stealthily. Utilize this device.", 
+    'The engineer carries a cloaking device that will allow the team to enter stealthily. Utilize this device.', 
     'neutral');
   generateDecision(
-    "The hacker's neural implant is hacked into by an unknown source. After accessing the hacker’s com-link, Unknown gives the hacker intel and suggests that they utilize a long forgotten and abandoned tunnel system. To access the tunnel system, the team must slide down a tight shaft. Trust Unknown and slide down the tunnel shaft.", 
+    'The hacker\'s neural implant is hacked into by an unknown source. After accessing the hacker’s com-link, Unknown gives the hacker intel and suggests that they utilize a long forgotten and abandoned tunnel system. To access the tunnel system, the team must slide down a tight shaft. Trust Unknown and slide down the tunnel shaft.', 
     'good');
   /*  */
 
@@ -172,7 +196,7 @@ function handleClick(){
   } else if(selected === 'good'){
     goodPoints++;
   } else{
-    alert("Please select one of the choices to continue.");
+    alert('Please select one of the choices to continue.');
   }
 
   //var clear = document.getElementById('questions').innerHTML = "";
