@@ -83,6 +83,7 @@ body{
 
 #navBar li{
 	text-shadow: 2px 2px 10px #F4F362 , 1px 1px 3px rgba(43,218,147,1);
+	list-style: none;
 }
 
 #story{
@@ -93,16 +94,10 @@ body{
 	box-shadow: 1px 1px 30px 0px rgba(200, 246, 232, .4);
 	background-image: url(../img/Heroimg1.gif);
 	background-repeat: no-repeat;
-
-
-/* ------------Beginning of Elijah's contribution, please delete comments as you see fit ------------ */
-
 	display: flex;
-    flex-direction: column;
+  flex-direction: column;
 	justify-content: space-between;
-	
-/* ------------Ending of Elijah's contribution, please delete comments as you see fit ------------ */
-
+	background-size: 100%;
 }
 
 #article { /*elijah deleted story to make requested changes work */
@@ -131,6 +126,7 @@ body{
 	background-position: 0% 5%;
 	display: grid;
 	place-content: center;
+	line-height: 17px;
 }
 
 #questionPrompt p{
@@ -152,7 +148,7 @@ body{
 
 #questions p{
 	color: silver;
-	line-height: 1.5em;
+	line-height: 1em;
 	text-align: justify;
 	padding-left: 1.5em;
 	padding-right: 1.5em;
