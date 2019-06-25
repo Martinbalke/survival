@@ -69,7 +69,7 @@ function renderDamage(className) { // parameter is string with class name of cha
         characterBio[i].textContent = 'Offline';
         characterBio[i].style.color = 'rgb(150, 150, 150)';
         characterBioDetails[i].style.color = 'rgb(150, 150, 150)';
-        classStatus[i].textContent = 'Killed';
+        classStatus[i].textContent = 'KIA';
         classStatus[i].style.animation = '';
         classStatus[i].style.animationIterationCount = '';
         classStatus[i].style.color = 'rgb(150, 150, 150)';
