@@ -92,15 +92,21 @@ function renderStory(){
 }
 
 //Event Handlers
-
+// scenario[0][0].morality
 function handleClick(){
+  var character = scenario[group][event.target.class].character;
   event.preventDefault();
   generateStoryNode(scenario[group][event.target.class].promptText);
   var newGroup = scenario[group][event.target.class].nextGroup;
   group = newGroup;
   decisionLayer++;
-  console.log(event.target.class);
- renderStory();
+  if(scenario[group][event.target.class].morality === 'B') {
+    renderDamage(character);
+    renderDamage(character);
+  } else if(scenario[group][event.target.class].morality === 'N') {
+    renderDamage(character);
+  }
+  renderStory();
 }
 
 //Helper functions
@@ -169,6 +175,3 @@ divEl_Questions.addEventListener('click', handleClick);
 renderStory();
 renderCharacters();
 renderDateTime();
-renderDamage('hacker');
-renderDamage('engineer');
-renderDamage('engineer');
