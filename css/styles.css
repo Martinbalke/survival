@@ -257,7 +257,7 @@ footer p{
 .HUD-imgs {
 	display: flex;
 	flex-direction: row;
-	justify-content: space-between;
+	justify-content: center;
 }
 .class-name {
 	margin: 0;
