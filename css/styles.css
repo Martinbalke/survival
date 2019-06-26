@@ -257,7 +257,7 @@ footer p{
 .HUD-imgs {
 	display: flex;
 	flex-direction: row;
-	justify-content: space-between;
+	justify-content: center;
 }
 .class-name {
 	margin: 0;
@@ -275,7 +275,7 @@ footer p{
 }
 .character-bio-details {
 	margin: 0 5px;
-	font-size: 0.25em;
+	font-size: 5px;
 	font-family: 'Orbitron', sans-serif;
 	color: red;
 	text-shadow: 1px 2px 4px black;

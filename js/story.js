@@ -3,13 +3,13 @@
 var scenario = [[],[],[],[],[],[],[],[],[],[],[],[],[]];
 var storyLayers = [[`Scanners have picked up a security force that has set up a perimeter around the chosen point of entry in to the facility. A new break-in plan will need to be improvised`],[`The core is protected by a high security system that is harder to bypass tahn expected. The point of entry consists of a 50 inch impenetrable pressurized bank vault door made of titanium alloys. Scanners have also detected a hidden laser turret. A new break in plan will have to be improvised`],[`After successfully retrieving the core an alarm is tripped and scaners pick up movement of an approaching overwhelming force. An escape plan will have to be quickly improvised`]];
 
-function StoryNode (morality, group, choiceText, nextGroup, promptText){
+function StoryNode (morality, group, choiceText, nextGroup, promptText, character){
   this.group = group;
   this.morality = morality;
   this.choiceText = choiceText;
   this.nextGroup = nextGroup;
   this.promptText = promptText;
-
+  this.character= character;
   scenario[group].push(this);
 }
 
@@ -17,7 +17,7 @@ new StoryNode('G', 0, `The hacker's neural implant is hacked into by an unknown 
 
 new StoryNode('N', 0, `The engineer carries a cloaking device that will allow the team to enter stealthily.  Do you utilize the device?`, 2, `The engineer activates the cloaking device but reminds the team that the device was only designed to cloak one individual, and that extending the cloaking field to the rest of the team would overload the device’s refractor coil. The team manages to sneak past the security force while undetected, but the engineer suffers half damage as the device overheats, causing second degree burns.`);
 
-new StoryNode('B', 0, `The soldier is equipped with a full arsenal of weapons and several grenades. Do you let the soldier lead the team into a potential high-stakes shootout?`, 1, `The soldier throws a stun grenade to disorient the enemy, then opens fire on the security forces to draw attention. The engineer provides covering fire with his carbine as the soldier advances. The hacker flanks the security forces from the rear, causing the enemy confusion. The team manages to neutralize the entire security force during the assault. However, the soldier was hit by several kinetic rounds, which bypassed his armor and injured his internal organs. The soldier dies rapidly from his injuries.`);
+new StoryNode('B', 0, `The soldier is equipped with a full arsenal of weapons and several grenades. Do you let the soldier lead the team into a potential high-stakes shootout?`, 1, `The soldier throws a stun grenade to disorient the enemy, then opens fire on the security forces to draw attention. The engineer provides covering fire with his carbine as the soldier advances. The hacker flanks the security forces from the rear, causing the enemy confusion. The team manages to neutralize the entire security force during the assault. However, the soldier was hit by several kinetic rounds, which bypassed his armor and injured his internal organs. The soldier dies rapidly from his injuries.`, 'soldier');
 
 new StoryNode('G', 1, `The hacker is again contact by the unknown source.The unknown source sends the hacker a decryption code that will allow her to hack into the terminal. Do you again, trust the unknown source?`, 8, `The hacker uploads the decryption code onto a chip and inserts the chip into the terminal. The decryption code appears to be successful, and the hacker begins to hack into the terminal. The hacker successfully disengages all local security protocols. The vault door depressurizes and opens. The team walks into the vault and successfully retrieves the core.`);
 
@@ -90,3 +90,4 @@ new StoryNode('G', 12, `The soldier is equipped with a full arsenal of weapons a
 new StoryNode('N', 12, `The engineer carries a cloaking device that will allow the team to leave the building stealthily.  Do you utilize the device?`, 'final', `The engineer attempts to activate the cloaking device but finds its electronics disabled. It is likely jammed by an electronic warfare device. The hacker hacks into the device and manages to override the jamming signal. The cloaking device is successfully activated. However, the cloaking device eventually overheats, causing second degree burns. The engineer suffers half damage.`);
 
 new StoryNode('B', 12, `The hacker is contacted by the unknown source who suggests that they escape using the nearest ventilation system. Do you once again, trust the unknown source and enter the ventilation system?`, 'final', `Using the multi-tool, the engineer quickly pries open the ventilation grill of the nearest vent and jumps in feet first. The soldier enters second, but the hacker was not quick enough to follow and suffers fatal wounds as the overwhelming force opens fire. As the soldier and engineer traverses the ventilation system, they discover a shaft, which opens to the same access tunnel that was used to enter the facility.`);
+
