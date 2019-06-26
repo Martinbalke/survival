@@ -17,6 +17,7 @@ var articleEl = document.getElementById('article');
 var sectionEl_Questions = document.getElementById('questions');
 var group = 0;
 var decisionLayer = 0;
+var endingStory;
 
 //Object Constructors 
 
@@ -57,8 +58,6 @@ function renderCharacters() {
 function renderDamage(className) { // parameter is string with class name of character that should sustain damage
   for(var i = 0; i < teamMembers.length; i ++) { // loops through teamMembers Array
     if(className === teamMembers[i].className) { // checks if there is a matching character
-      console.log(className);
-      console.log(teamMembers[i].className);
       if(teamMembers[i].heartsNum > 0 ) { // if the character is alive
         heartsSprite[i].src = './img/heartSpriteInjured.png';
         characterImg[i].src = `./img/${className}Injured.gif`;
@@ -92,14 +91,19 @@ function renderStory(){
 }
 
 //Event Handlers
-// scenario[0][0].morality
 function handleClick(){
+  if(decisionLayer === 2){
+    endingStory = scenario[group][event.target.class].promptText;
+    localStorage.setItem('story', JSON.stringify(endingStory));
+    document.location.replace('ending.html');
+  }
   var character = scenario[group][event.target.class].character;
   event.preventDefault();
   generateStoryNode(scenario[group][event.target.class].promptText);
   var newGroup = scenario[group][event.target.class].nextGroup;
   group = newGroup;
   decisionLayer++;
+
   if(scenario[group][event.target.class].morality === 'B') {
     renderDamage(character);
     renderDamage(character);
