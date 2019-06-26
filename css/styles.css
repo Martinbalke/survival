@@ -1,0 +1,303 @@
+/* color pallete  main: #1C2332 dark blue #122842 blue #7FF6FE light blue #C8F6E8 blueish white accents: #FC3981 pink  #F4F362 yellow #2BDA93 coral */
+/* font families MAIN: font-family: 'Raleway', sans-serif;
+Accent: font-family: 'Oswald', sans-serif; */
+
+/* elijah imported google font */
+@import url('https://fonts.googleapis.com/css?family=Orbitron&display=swap');
+
+@keyframes alert1 { 
+    0% { color: red }
+    50% { color: white }
+    100% { color: red }
+}
+@keyframes alert2 { 
+    0% { color: red }
+    50% { color: white }
+    100% { color: red }
+}
+
+*{
+ 	color:white;
+ 	font-family: 'Oswald', sans-serif;
+}
+
+body{
+	margin-left: 20vw;
+	margin-right: 20vw;
+	background-color: black;
+}
+
+#logoShape{
+	height: 30px;
+	width: 30px;
+	background: #F4F362;
+	clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)
+}
+
+#logo{
+	display: flex;
+ 	padding: 5px;
+}
+
+#logo h1{
+	font-family: 'Oswald', sans-serif; 
+	font-size: 2em;
+	text-shadow: 2px 2px 10px #F4F362 , 1px 1px 3px rgba(43,218,147,1);
+}
+
+#logo p{
+	font-family: 'Oswald', sans-serif; 
+	font-size: .75em;
+	position: relative;
+	top: 30px;
+	right: 100px;	
+	text-shadow: 2px 2px 10px   #F4F362, 1px 1px 3px rgba(43,218,147,1);
+}
+
+#navBar{
+ 	height: 7vh;
+ 	background-image: url(../img/photo-1490971588422-52f6262a237a.jpeg);
+ 	display: flex;
+	justify-content: space-between;
+	margin-bottom: 5px;
+	box-shadow: 1px 1px 30px 0px rgba(200, 246, 232, .4);
+}
+
+#navBar ul{
+	display: flex;
+	align-items: flex-end;
+	padding: 5px;
+}
+
+#navBar a{
+	text-decoration: none;
+	margin: 5px;
+	padding: 2px;
+	height: 30px;
+	line-height: 30px;
+}
+
+#navBar a:hover{
+	border-bottom: 2px solid #C8F6E8;
+}
+
+#navBar li{
+	text-shadow: 2px 2px 10px #F4F362 , 1px 1px 3px rgba(43,218,147,1);
+	list-style: none;
+}
+
+#story{
+	height: 50vh;
+	background-color: #333;
+	margin-bottom: 5px;
+	background-size: 100%;
+	box-shadow: 1px 1px 30px 0px rgba(200, 246, 232, .4);
+	background-image: url(../img/Heroimg1.gif);
+	background-repeat: no-repeat;
+	display: flex;
+  flex-direction: column;
+	justify-content: space-between;
+	background-size: 100%;
+}
+
+#article { /*elijah deleted story to make requested changes work */
+	border-radius: 5em;
+	background-color: rgba(0, 0, 0, .7);
+}
+
+#article p { /*elijah deleted story to make requested changes work */
+	color: silver;
+	width: 78%;
+	line-height: 1.3em;
+	text-align: justify;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#questionPrompt{
+	border: 1px solid white;
+	height: 10vh;
+	background-color: #777;
+	margin-bottom: 5px;
+	box-shadow: 1px 1px 30px 0px rgba(200, 246, 232, .4);
+	background-image: url(../img/promptbackground.jpeg);
+	background-position: 0% 5%;
+	display: grid;
+	place-content: center;
+	line-height: 17px;
+}
+
+#questionPrompt p{
+	text-align: center;
+	width: 77%;
+	color: silver;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#questions{
+	height: 40vh;
+	background-color: #333;
+	display: flex;
+	justify-content: space-around;
+	box-shadow: 1px 1px 30px 0px rgba(200, 246, 232, .4);
+	background-image: url(../img/photo-1490971588422-52f6262a237a.jpeg);
+}
+
+#questions p{
+	color: silver;
+	line-height: 1em;
+	text-align: justify;
+	padding-left: 1.5em;
+	padding-right: 1.5em;
+}
+
+#question1{
+	background-image: url(../img/promptbackground.jpeg);
+	background-position: 0% 10%;
+	border: 1px solid white;
+	display: grid;
+	place-content: center;
+	margin: 10px;
+	width: 32vw;
+	background-color: #111;
+	box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.75);
+}
+
+#question1:hover{
+	box-shadow: 2px 2px 10px #F4F362 , 1px 1px 3px rgba(43,218,147,1);
+	cursor: pointer;
+}
+
+#question2{
+	background-image: url(../img/promptbackground.jpeg);
+	background-position: 0% 10%;
+	border: 1px solid white;
+	display: grid;
+	place-content: center;
+	margin: 10px;
+	width: 32vw;
+	background-color: #111;
+	box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.75);
+}
+
+#question2:hover{
+	box-shadow: 2px 2px 10px #F4F362 , 1px 1px 3px rgba(43,218,147,1);
+	cursor: pointer;
+}
+
+#question3{
+	background-image: url(../img/promptbackground.jpeg);
+	background-position: 0% 10%;
+	border: 1px solid white;
+	display: grid;
+	place-content: center;
+	margin: 10px;
+	width: 32vw;
+	background-color: #111;
+	box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.75);
+}
+
+#question3:hover{
+	box-shadow: 2px 2px 10px #F4F362 , 1px 1px 3px rgba(43,218,147,1);
+	cursor: pointer;
+}
+
+footer{
+	display: flex;
+	justify-content: center;
+	margin-top: 10px;
+}
+
+footer p{
+	margin: 5px;
+	font-size: .7em;
+	color: rgba(255,255,255,0.4);
+  opacity: .45;
+}
+
+/* ------------Beginning of Elijah's contribution, please delete comments as you see fit ------------ */
+
+#current-time {
+	margin: 0 0 0 10px;
+	font-size: 0.8em;
+	font-family: 'Orbitron', sans-serif;
+	color: red;
+	text-shadow: 1px 2px 4px black;
+	opacity: 0.8;
+}
+
+#HUD {
+	margin-bottom: 5px;
+	height: 10vh;
+	margin: 5px;
+	display: flex;
+    flex-direction: row;
+	justify-content: space-between;
+	opacity: 0.8;
+}
+.class-container {
+	background-color: rgba(100, 0, 0, 0.4);
+	border: 1.5px dashed red;
+	margin: 0 5px;
+	width: 32vw;
+	display: flex;
+	padding: 5px;
+    flex-direction: column;
+    justify-content: center;
+	overflow: hidden;
+}
+.HUD-info {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.HUD-imgs {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+.class-name {
+	margin: 0;
+	font-size: 0.8em;
+	font-family: 'Orbitron', sans-serif;
+	color: red;
+	text-shadow: 1px 2px 4px black;
+}
+.character-bio {
+	margin: 0;
+	font-size: 0.8em;
+	font-family: 'Orbitron', sans-serif;
+	color: red;
+	text-shadow: 1px 2px 4px black;
+}
+.character-bio-details {
+	margin: 0 5px;
+	font-size: 5px;
+	font-family: 'Orbitron', sans-serif;
+	color: red;
+	text-shadow: 1px 2px 4px black;
+}
+.class-status {
+	margin: 0;
+	font-size: 0.8em;
+	font-family: 'Orbitron', sans-serif;
+	color: red;
+	text-shadow: 1px 2px 4px black;
+}
+.character-img {
+	border: 1.5px solid red;
+	width: 50px;
+	height: 50px;
+}
+.hearts-sprite {
+	margin: 0 -5px 0 0;
+	vertical-align: top;
+	width: 50px;
+	height: 25px;
+}
+
+
+/* ------------Ending of Elijah's contribution, please delete comments as you see fit ------------ */
