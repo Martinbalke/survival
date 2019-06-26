@@ -9,17 +9,16 @@ function StoryNode (morality, group, choiceText, nextGroup, promptText, characte
   this.choiceText = choiceText;
   this.nextGroup = nextGroup;
   this.promptText = promptText;
-  this.character = character;
+  this.character= character;
   scenario[group].push(this);
 }
-
 
 
 new StoryNode('G', 0, `The hacker's neural implant is hacked into by an unknown source. After accessing the hacker’s com-link, the unknown source gives the hacker intel and suggests that they utilize an abandoned tunnel system that was largely forgotten. To access the tunnel system, the team must slide down a tight shaft. Do you trust the unknown source?`, 3, `The engineer shines a flashlight into the shaft and sees what looks like the floor of the tunnel. He deploys scaling equipment and descends down the shaft into the old tunnel system. After his feet hit the ground, he quickly scans the area for threats and determines that the tunnel is safe. He signals the soldier and hacker to descend the shaft.`);
 
 new StoryNode('N', 0, `The engineer carries a cloaking device that will allow the team to enter stealthily.  Do you utilize the device?`, 2, `The engineer activates the cloaking device but reminds the team that the device was only designed to cloak one individual, and that extending the cloaking field to the rest of the team would overload the device’s refractor coil. The team manages to sneak past the security force while undetected, but the engineer suffers half damage as the device overheats, causing second degree burns.`);
 
-new StoryNode('B', 0, `The soldier is equipped with a full arsenal of weapons and several grenades. Do you let the soldier lead the team into a potential high-stakes shootout?`, 1, `The soldier throws a stun grenade to disorient the enemy, then opens fire on the security forces to draw attention. The engineer provides covering fire with his carbine as the soldier advances. The hacker flanks the security forces from the rear, causing the enemy confusion. The team manages to neutralize the entire security force during the assault. However, the soldier was hit by several kinetic rounds, which bypassed his armor and injured his internal organs. The soldier dies rapidly from his injuries.`);
+new StoryNode('B', 0, `The soldier is equipped with a full arsenal of weapons and several grenades. Do you let the soldier lead the team into a potential high-stakes shootout?`, 1, `The soldier throws a stun grenade to disorient the enemy, then opens fire on the security forces to draw attention. The engineer provides covering fire with his carbine as the soldier advances. The hacker flanks the security forces from the rear, causing the enemy confusion. The team manages to neutralize the entire security force during the assault. However, the soldier was hit by several kinetic rounds, which bypassed his armor and injured his internal organs. The soldier dies rapidly from his injuries.`, 'soldier');
 
 new StoryNode('G', 1, `The hacker is again contact by the unknown source.The unknown source sends the hacker a decryption code that will allow her to hack into the terminal. Do you again, trust the unknown source?`, 8, `The hacker uploads the decryption code onto a chip and inserts the chip into the terminal. The decryption code appears to be successful, and the hacker begins to hack into the terminal. The hacker successfully disengages all local security protocols. The vault door depressurizes and opens. The team walks into the vault and successfully retrieves the core.`);
 
