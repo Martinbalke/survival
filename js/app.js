@@ -1,7 +1,7 @@
 'use strict';
 
 //Global Variables
-var divEL_endingText = document.getElementById('endingText');
+
 var divEl_Questions = document.getElementById('questions');
 var teamMembers = []; // array that stores all Characters with their corresponding object properties
 var classContainer = document.getElementsByClassName('class-container');
@@ -17,6 +17,7 @@ var articleEl = document.getElementById('article');
 var sectionEl_Questions = document.getElementById('questions');
 var group = 0;
 var decisionLayer = 0;
+var endingStory;
 
 //Object Constructors 
 
@@ -57,8 +58,6 @@ function renderCharacters() {
 function renderDamage(className) { // parameter is string with class name of character that should sustain damage
   for(var i = 0; i < teamMembers.length; i ++) { // loops through teamMembers Array
     if(className === teamMembers[i].className) { // checks if there is a matching character
-      console.log(className);
-      console.log(teamMembers[i].className);
       if(teamMembers[i].heartsNum > 0 ) { // if the character is alive
         heartsSprite[i].src = './img/heartSpriteInjured.png';
         characterImg[i].src = `./img/${className}Injured.gif`;
@@ -93,10 +92,9 @@ function renderStory(){
 
 //Event Handlers
 function handleClick(){
-  if(decisionLayer === 3){
-    divEl_Questions.removeEventListener('click', handleClick);
-    teamMembers = [];
-    endingChoices();
+  if(decisionLayer === 2){
+    endingStory = scenario[group][event.target.class].promptText;
+    localStorage.setItem('story', JSON.stringify(endingStory));
     document.location.replace('ending.html');
   }
   var character = scenario[group][event.target.class].character;
@@ -167,13 +165,7 @@ function generateChoices(){
     sectionEl_Questions.appendChild(pEl);
   }
 }
-function endingChoices(){
-  if(teamMembers.length === 0){
-    let pEl = document.createElement('p');
-    pEl.textContent = `You have failed all of your team members died and you suck a lot and stuff`
-    divEL_endingText.appendChild(pEl);
-  }
-}
+
 /* TODO: randomize order of decisions */
 function randomizer(min, max){
   return Math.floor(Math.random() * (max - min + 1) * min);
