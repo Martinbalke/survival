@@ -1,7 +1,7 @@
 'use strict';
 
 //Global Variables
-
+var divEL_endingText = document.getElementById('endingText');
 var divEl_Questions = document.getElementById('questions');
 var teamMembers = []; // array that stores all Characters with their corresponding object properties
 var classContainer = document.getElementsByClassName('class-container');
@@ -92,15 +92,27 @@ function renderStory(){
 }
 
 //Event Handlers
-
 function handleClick(){
+  if(decisionLayer === 3){
+    divEl_Questions.removeEventListener('click', handleClick);
+    teamMembers = [];
+    endingChoices();
+    document.location.replace('ending.html');
+  }
+  var character = scenario[group][event.target.class].character;
   event.preventDefault();
   generateStoryNode(scenario[group][event.target.class].promptText);
   var newGroup = scenario[group][event.target.class].nextGroup;
   group = newGroup;
   decisionLayer++;
-  console.log(event.target.class);
- renderStory();
+
+  if(scenario[group][event.target.class].morality === 'B') {
+    renderDamage(character);
+    renderDamage(character);
+  } else if(scenario[group][event.target.class].morality === 'N') {
+    renderDamage(character);
+  }
+  renderStory();
 }
 
 //Helper functions
@@ -155,7 +167,13 @@ function generateChoices(){
     sectionEl_Questions.appendChild(pEl);
   }
 }
-
+function endingChoices(){
+  if(teamMembers.length === 0){
+    let pEl = document.createElement('p');
+    pEl.textContent = `You have failed all of your team members died and you suck a lot and stuff`
+    divEL_endingText.appendChild(pEl);
+  }
+}
 /* TODO: randomize order of decisions */
 function randomizer(min, max){
   return Math.floor(Math.random() * (max - min + 1) * min);
@@ -169,6 +187,3 @@ divEl_Questions.addEventListener('click', handleClick);
 renderStory();
 renderCharacters();
 renderDateTime();
-renderDamage('hacker');
-renderDamage('engineer');
-renderDamage('engineer');
