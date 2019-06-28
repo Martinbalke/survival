@@ -364,14 +364,16 @@ footer p{
 }
 .character-img {
 	border: 1.5px solid red;
-	width: 50px;
 	width: 100%;
-	height: 50px;
+	height: auto;
+	max-width: 50px;
+	max-height: 50px;
 }
 .hearts-sprite {
 	margin: 0 -5px 0 0;
 	vertical-align: top;
-	width: 50px;
 	width: 100%;
-	height: 25px;
+	height: auto;
+	max-width: 50px;
+	max-height: 25px;
 }
