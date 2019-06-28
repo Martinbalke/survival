@@ -21,7 +21,7 @@ var totalMales = 2;
 var decisionLayer = 0;
 var endingStory;
 
-//Object Constructors 
+//Object Constructors
 
 function Character(className, name, gender, age, analysis) { // constructor function for game characters
   this.className = className;
@@ -115,11 +115,10 @@ function handleClick(){
   var newGroup = scenario[group][event.target.class].nextGroup;
   group = newGroup;
   decisionLayer++;
-
   if(scenario[group][event.target.class].morality === 'B') {
     renderDamage(character);
     renderDamage(character);
-    if(scenario[group][event.target.class].character !== 'soldier' || scenario[group][event.target.class].character === 'engineer') {
+    if(scenario[group][event.target.class].character !== 'soldier' || scenario[group][event.target.class].character === 'engineer') { // this code may produce a bug
       totalMales --;
     }
     if(totalMales > 0) {
