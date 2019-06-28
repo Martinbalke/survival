@@ -17,6 +17,7 @@ var sectionEl_questionPrompt = document.getElementById('questionPrompt');
 var articleEl = document.getElementById('article');
 var sectionEl_Questions = document.getElementById('questions');
 var group = 0;
+var totalMales = 2;
 var decisionLayer = 0;
 var endingStory;
 
@@ -67,6 +68,7 @@ function renderDamage(className) { // parameter is string with class name of cha
         classStatus[i].style.animationIterationCount = 'infinite';
         teamMembers[i].heartsNum --; // subtract health from the character
       }
+
       if(teamMembers[i].heartsNum === 0 ) { // renders unique style for when the character dies
         classContainer[i].style.backgroundColor = 'rgba(50, 50, 50, 0.4)';
         classContainer[i].style.borderColor = 'rgb(150, 150, 150)';
@@ -112,8 +114,26 @@ function handleClick(){
   if(scenario[group][event.target.class].morality === 'B') {
     renderDamage(character);
     renderDamage(character);
+    if(scenario[group][event.target.class].character !== 'soldier' || scenario[group][event.target.class].character === 'engineer') {
+      totalMales --;
+    }
+    if(totalMales > 0) {
+      var rng = Math.round((Math.random() * 1));
+      if(rng === 1) {
+        playSound('./mp3/backupmale.mp3');
+      } else {
+        playSound('./mp3/backupfemale.mp3');
+      }
+    } else {
+      playSound('./mp3/backupfemale.mp3');
+    }
   } else if(scenario[group][event.target.class].morality === 'N') {
     renderDamage(character);
+    if(scenario[group][event.target.class].character === 'hacker') {
+      playSound('./mp3/medicfemale3');
+    } else {
+      playSound('./mp3/medicmale.mp3');
+    }
   }
   renderStory();
 }
@@ -136,7 +156,6 @@ function capitalizeFirstLetter(string) { // capitalizes the first letter of a st
 function playSound(source) {
   var audio = new Audio(source);
   audio.loop = false;
-  audio.volume = 0.9;
   audio.play();
 }
 
