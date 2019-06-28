@@ -95,14 +95,19 @@ function renderStory(){
 
 //Event Handlers
 function handleClick(){
-  // if(event.target) { // plays a sound when button is clicked
-  //   playSound();
-  // }
-  if(decisionLayer === 2){
-    localStorage.setItem('team',JSON.stringify(teamMembers));
-    endingStory = scenario[group][event.target.class].promptText;
-    localStorage.setItem('story', JSON.stringify(endingStory));
-    document.location.replace('ending.html');
+  console.log(decisionLayer);
+  if(event.target) {
+    if(decisionLayer === 0) {
+      playSound('./mp3/decision2delay.mp3', 1);
+    } else if(decisionLayer === 1) {
+      playSound('./mp3/decision3delay.mp3', 1);
+    }
+    if(decisionLayer === 2){
+      localStorage.setItem('team',JSON.stringify(teamMembers));
+      endingStory = scenario[group][event.target.class].promptText;
+      localStorage.setItem('story', JSON.stringify(endingStory));
+      document.location.replace('ending.html');
+    }
   }
   var character = scenario[group][event.target.class].character;
   event.preventDefault();
@@ -120,32 +125,23 @@ function handleClick(){
     if(totalMales > 0) {
       var rng = Math.round((Math.random() * 1));
       if(rng === 1) {
-        playSound('./mp3/backupmale.mp3');
+        playSound('./mp3/backupmale.mp3', 0.5);
       } else {
-        playSound('./mp3/backupfemale.mp3');
+        playSound('./mp3/backupfemale.mp3', 0.5);
       }
     } else {
-      playSound('./mp3/backupfemale.mp3');
+      playSound('./mp3/backupfemale.mp3', 0.5);
     }
   } else if(scenario[group][event.target.class].morality === 'N') {
     renderDamage(character);
     if(scenario[group][event.target.class].character === 'hacker') {
-      playSound('./mp3/medicfemale3');
+      playSound('./mp3/medicfemale3', 0.5);
     } else {
-      playSound('./mp3/medicmale.mp3');
+      playSound('./mp3/medicmale.mp3', 0.5);
     }
   }
   renderStory();
 }
-
-// function clickMusic() {
-//   if(event.target) { // plays a sound when button is clicked
-//     if(spamChecker === false) {
-//       playMusic('./mp3/breakthrough.mp3');
-//       spamChecker = true;
-//     }
-//   }
-// }
 
 //Helper functions
 
@@ -153,14 +149,15 @@ function capitalizeFirstLetter(string) { // capitalizes the first letter of a st
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-function playSound(source) {
+function playSound(source, volume) {
   var audio = new Audio(source);
   audio.loop = false;
+  audio.volume = volume;
   audio.play();
 }
 
 function defaultMusicSettings() {
-  backgroundMusic.volume = 0.25;
+  backgroundMusic.volume = 0.2;
 }
 
 function renderDateTime() {
@@ -224,7 +221,6 @@ function randomizer(min, max){
 //Event Listeners
 
 divEl_Questions.addEventListener('click', handleClick);
-// body.addEventListener('click', clickMusic);
 
 //Function calls
 renderStory();
