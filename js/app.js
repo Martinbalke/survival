@@ -2,6 +2,7 @@
 
 //Global Variables
 
+var backgroundMusic = document.getElementById('background-music');
 var divEl_Questions = document.getElementById('questions');
 var teamMembers = []; // array that stores all Characters with their corresponding object properties
 var classContainer = document.getElementsByClassName('class-container');
@@ -16,10 +17,11 @@ var sectionEl_questionPrompt = document.getElementById('questionPrompt');
 var articleEl = document.getElementById('article');
 var sectionEl_Questions = document.getElementById('questions');
 var group = 0;
+var totalMales = 2;
 var decisionLayer = 0;
 var endingStory;
 
-//Object Constructors 
+//Object Constructors
 
 function Character(className, name, gender, age, analysis) { // constructor function for game characters
   this.className = className;
@@ -66,6 +68,7 @@ function renderDamage(className) { // parameter is string with class name of cha
         classStatus[i].style.animationIterationCount = 'infinite';
         teamMembers[i].heartsNum --; // subtract health from the character
       }
+
       if(teamMembers[i].heartsNum === 0 ) { // renders unique style for when the character dies
         classContainer[i].style.backgroundColor = 'rgba(50, 50, 50, 0.4)';
         classContainer[i].style.borderColor = 'rgb(150, 150, 150)';
@@ -92,11 +95,19 @@ function renderStory(){
 
 //Event Handlers
 function handleClick(){
-  if(decisionLayer === 2){
-    localStorage.setItem('team',JSON.stringify(teamMembers));
-    endingStory = scenario[group][event.target.class].promptText;
-    localStorage.setItem('story', JSON.stringify(endingStory));
-    document.location.replace('ending.html');
+  console.log(decisionLayer);
+  if(event.target) {
+    if(decisionLayer === 0) {
+      playSound('./mp3/decision2delay.mp3', 1);
+    } else if(decisionLayer === 1) {
+      playSound('./mp3/decision3delay.mp3', 1);
+    }
+    if(decisionLayer === 2){
+      localStorage.setItem('team',JSON.stringify(teamMembers));
+      endingStory = scenario[group][event.target.class].promptText;
+      localStorage.setItem('story', JSON.stringify(endingStory));
+      document.location.replace('ending.html');
+    }
   }
   var character = scenario[group][event.target.class].character;
   event.preventDefault();
@@ -104,12 +115,29 @@ function handleClick(){
   var newGroup = scenario[group][event.target.class].nextGroup;
   group = newGroup;
   decisionLayer++;
-
   if(scenario[group][event.target.class].morality === 'B') {
     renderDamage(character);
     renderDamage(character);
+    if(scenario[group][event.target.class].character !== 'soldier' || scenario[group][event.target.class].character === 'engineer') { // this code may produce a bug
+      totalMales --;
+    }
+    if(totalMales > 0) {
+      var rng = Math.round((Math.random() * 1));
+      if(rng === 1) {
+        playSound('./mp3/backupmale.mp3', 0.5);
+      } else {
+        playSound('./mp3/backupfemale.mp3', 0.5);
+      }
+    } else {
+      playSound('./mp3/backupfemale.mp3', 0.5);
+    }
   } else if(scenario[group][event.target.class].morality === 'N') {
     renderDamage(character);
+    if(scenario[group][event.target.class].character === 'hacker') {
+      playSound('./mp3/medicfemale3', 0.5);
+    } else {
+      playSound('./mp3/medicmale.mp3', 0.5);
+    }
   }
   renderStory();
 }
@@ -118,6 +146,17 @@ function handleClick(){
 
 function capitalizeFirstLetter(string) { // capitalizes the first letter of a string
   return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+function playSound(source, volume) {
+  var audio = new Audio(source);
+  audio.loop = false;
+  audio.volume = volume;
+  audio.play();
+}
+
+function defaultMusicSettings() {
+  backgroundMusic.volume = 0.2;
 }
 
 function renderDateTime() {
@@ -187,3 +226,8 @@ renderStory();
 renderCharacters();
 renderDateTime();
 generateFirstStory();
+defaultMusicSettings();
+
+
+
+
