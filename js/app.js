@@ -93,6 +93,7 @@ function renderStory(){
 //Event Handlers
 function handleClick(){
   if(decisionLayer === 2){
+    localStorage.setItem('team',JSON.stringify(teamMembers));
     endingStory = scenario[group][event.target.class].promptText;
     localStorage.setItem('story', JSON.stringify(endingStory));
     document.location.replace('ending.html');
@@ -141,6 +142,12 @@ function renderDateTime() {
   setTimeout(renderDateTime, 1000);
 }
 
+function generateFirstStory(){
+  let pEl = document.createElement('p');
+  pEl.innerText = `The year is 2099. You are leading a team of mercenaries recruited by the notorious crime syndicate known as "Aku Watashi." They are on a high-stakes mission to steal a fusion core that is worth billions on the black market. You must guide the team, utilizing the skill sets of a soldier, an engineer, and a hacker to make your way through a high security facility. This will likely turn into a fight for survival as you will encounter unpredictable situations and unknown enemy opposition. Smart decision making is required to help this team make it safely through the facility with the core intact.`;
+  console.log(pEl);
+  articleEl.appendChild(pEl);
+}
 function generateStoryNode(storyNode){
   articleEl.innerHTML = '';
   var pEl = document.createElement('p');
@@ -179,3 +186,4 @@ divEl_Questions.addEventListener('click', handleClick);
 renderStory();
 renderCharacters();
 renderDateTime();
+generateFirstStory();
