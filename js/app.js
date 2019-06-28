@@ -2,6 +2,7 @@
 
 //Global Variables
 
+var body = document.getElementById('body');
 var divEl_Questions = document.getElementById('questions');
 var teamMembers = []; // array that stores all Characters with their corresponding object properties
 var classContainer = document.getElementsByClassName('class-container');
@@ -18,6 +19,7 @@ var sectionEl_Questions = document.getElementById('questions');
 var group = 0;
 var decisionLayer = 0;
 var endingStory;
+var spamChecker = false;
 
 //Object Constructors 
 
@@ -92,6 +94,9 @@ function renderStory(){
 
 //Event Handlers
 function handleClick(){
+  // if(event.target) { // plays a sound when button is clicked
+  //   playSound();
+  // }
   if(decisionLayer === 2){
     localStorage.setItem('team',JSON.stringify(teamMembers));
     endingStory = scenario[group][event.target.class].promptText;
@@ -114,10 +119,33 @@ function handleClick(){
   renderStory();
 }
 
+function clickMusic() {
+  if(event.target) { // plays a sound when button is clicked
+    if(spamChecker === false) {
+      playMusic('./mp3/breakthrough.mp3');
+      spamChecker = true;
+    }
+  }
+}
+
 //Helper functions
 
 function capitalizeFirstLetter(string) { // capitalizes the first letter of a string
   return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+function playSound(source) {
+  var audio = new Audio(source);
+  audio.loop = false;
+  audio.volume = 0.9;
+  audio.play();
+}
+
+function playMusic(source) {
+  var audio = new Audio(source);
+  audio.loop = true;
+  audio.volume = 0.25;
+  audio.play();
 }
 
 function renderDateTime() {
@@ -181,9 +209,12 @@ function randomizer(min, max){
 //Event Listeners
 
 divEl_Questions.addEventListener('click', handleClick);
+body.addEventListener('click', clickMusic);
 
 //Function calls
 renderStory();
 renderCharacters();
 renderDateTime();
 generateFirstStory();
+
+
