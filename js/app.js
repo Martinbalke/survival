@@ -2,7 +2,7 @@
 
 //Global Variables
 
-var body = document.getElementById('body');
+var backgroundMusic = document.getElementById('background-music');
 var divEl_Questions = document.getElementById('questions');
 var teamMembers = []; // array that stores all Characters with their corresponding object properties
 var classContainer = document.getElementsByClassName('class-container');
@@ -19,7 +19,6 @@ var sectionEl_Questions = document.getElementById('questions');
 var group = 0;
 var decisionLayer = 0;
 var endingStory;
-var spamChecker = false;
 
 //Object Constructors 
 
@@ -119,14 +118,14 @@ function handleClick(){
   renderStory();
 }
 
-function clickMusic() {
-  if(event.target) { // plays a sound when button is clicked
-    if(spamChecker === false) {
-      playMusic('./mp3/breakthrough.mp3');
-      spamChecker = true;
-    }
-  }
-}
+// function clickMusic() {
+//   if(event.target) { // plays a sound when button is clicked
+//     if(spamChecker === false) {
+//       playMusic('./mp3/breakthrough.mp3');
+//       spamChecker = true;
+//     }
+//   }
+// }
 
 //Helper functions
 
@@ -141,11 +140,8 @@ function playSound(source) {
   audio.play();
 }
 
-function playMusic(source) {
-  var audio = new Audio(source);
-  audio.loop = true;
-  audio.volume = 0.25;
-  audio.play();
+function defaultMusicSettings() {
+  backgroundMusic.volume = 0.25;
 }
 
 function renderDateTime() {
@@ -209,12 +205,15 @@ function randomizer(min, max){
 //Event Listeners
 
 divEl_Questions.addEventListener('click', handleClick);
-body.addEventListener('click', clickMusic);
+// body.addEventListener('click', clickMusic);
 
 //Function calls
 renderStory();
 renderCharacters();
 renderDateTime();
 generateFirstStory();
+defaultMusicSettings();
+
+
 
 

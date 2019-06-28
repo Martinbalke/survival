@@ -377,3 +377,6 @@ footer p{
 	max-width: 50px;
 	max-height: 25px;
 }
+#background-music {
+	display: none;
+}
