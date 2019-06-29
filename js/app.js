@@ -2,6 +2,7 @@
 
 //Global Variables
 
+var hero = document.getElementById('story');
 var backgroundMusic = document.getElementById('background-music');
 var divEl_Questions = document.getElementById('questions');
 var teamMembers = []; // array that stores all Characters with their corresponding object properties
@@ -95,10 +96,10 @@ function renderStory(){
 
 //Event Handlers
 function handleClick(){
-  console.log(decisionLayer);
   if(event.target) {
     if(decisionLayer === 0) {
       playSound('./mp3/decision2delay.mp3', 1);
+
     } else if(decisionLayer === 1) {
       playSound('./mp3/decision3delay.mp3', 1);
     }
@@ -115,28 +116,61 @@ function handleClick(){
   var newGroup = scenario[group][event.target.class].nextGroup;
   group = newGroup;
   decisionLayer++;
+  var rng = Math.round((Math.random() * 1));
   if(scenario[group][event.target.class].morality === 'B') {
     renderDamage(character);
     renderDamage(character);
-    if(scenario[group][event.target.class].character !== 'soldier' || scenario[group][event.target.class].character === 'engineer') { // this code may produce a bug
-      totalMales --;
-    }
-    if(totalMales > 0) {
-      var rng = Math.round((Math.random() * 1));
+    console.log(teamMembers[0].heartsNum);
+    console.log(teamMembers[1].heartsNum);
+    console.log(teamMembers[2].heartsNum);
+    if(teamMembers[2].heartsNum !== 0 & teamMembers[1].heartsNum !== 0) {
       if(rng === 1) {
         playSound('./mp3/backupmale.mp3', 0.5);
       } else {
         playSound('./mp3/backupfemale.mp3', 0.5);
       }
-    } else {
+    } else if(teamMembers[2].heartsNum !== 0 & teamMembers[0].heartsNum !== 0) {
+      if(rng === 1) {
+        playSound('./mp3/backupmale.mp3', 0.5);
+      } else {
+        playSound('./mp3/backupfemale.mp3', 0.5);
+      }
+    } else if(teamMembers[0].heartsNum === 0 & teamMembers[1].heartsNum === 0) {
       playSound('./mp3/backupfemale.mp3', 0.5);
+    } else if(teamMembers[2].heartsNum === 0) {
+      playSound('./mp3/backupmale.mp3', 0.5);
     }
   } else if(scenario[group][event.target.class].morality === 'N') {
+    console.log(character);
     renderDamage(character);
-    if(scenario[group][event.target.class].character === 'hacker') {
-      playSound('./mp3/medicfemale3', 0.5);
-    } else {
-      playSound('./mp3/medicmale.mp3', 0.5);
+    for(var i = 0; i < teamMembers.length; i ++) { // loops through teamMembers Array
+      if(character === teamMembers[i].className) { // checks if there is a matching character
+        if(teamMembers[i].heartsNum !== 0) {
+          if(character === 'hacker') {
+            playSound('./mp3/medicfemale.mp3', 0.5);
+          } else {
+            playSound('./mp3/medicmale.mp3', 0.5);
+          }
+        } else {
+          if(teamMembers[2].heartsNum !== 0 & teamMembers[1].heartsNum !== 0) {
+            if(rng === 1) {
+              playSound('./mp3/backupmale.mp3', 0.5);
+            } else {
+              playSound('./mp3/backupfemale.mp3', 0.5);
+            }
+          } else if(teamMembers[2].heartsNum !== 0 & teamMembers[0].heartsNum !== 0) {
+            if(rng === 1) {
+              playSound('./mp3/backupmale.mp3', 0.5);
+            } else {
+              playSound('./mp3/backupfemale.mp3', 0.5);
+            }
+          } else if(teamMembers[0].heartsNum === 0 & teamMembers[1].heartsNum === 0) {
+            playSound('./mp3/backupfemale.mp3', 0.5);
+          } else if(teamMembers[2].heartsNum === 0) {
+            playSound('./mp3/backupmale.mp3', 0.5);
+          }
+        }
+      }
     }
   }
   renderStory();
