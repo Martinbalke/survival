@@ -53,9 +53,10 @@ function handleClick(){
   if(event.target) {
     if(decisionLayer === 0) {
       playSound('./mp3/decision2delay.mp3', 1);
-
+      document.getElementById('story').style.backgroundImage = "url('./img/core.gif')";
     } else if(decisionLayer === 1) {
       playSound('./mp3/decision3delay.mp3', 1);
+      document.getElementById('story').style.backgroundImage = "url('./img/escape.gif')";
     }
   }
   var rng = Math.round((Math.random() * 1));
@@ -113,10 +114,14 @@ function handleClick(){
     }
   }
   if(decisionLayer === 2){
-    localStorage.setItem('team',JSON.stringify(teamMembers));	    localStorage.setItem('team',JSON.stringify(teamMembers));
-    endingStory = scenario[group][event.target.class].promptText;	    endingStory = scenario[group][event.target.class].promptText;
-    localStorage.setItem('story', JSON.stringify(endingStory));	    localStorage.setItem('story', JSON.stringify(endingStory));
-    document.location.replace('ending.html');	    document.location.replace('ending.html');
+    localStorage.setItem('team',JSON.stringify(teamMembers));	    
+    localStorage.setItem('team',JSON.stringify(teamMembers));
+    endingStory = scenario[group][event.target.class].promptText;
+    endingStory = scenario[group][event.target.class].promptText;
+    localStorage.setItem('story', JSON.stringify(endingStory));
+    localStorage.setItem('story', JSON.stringify(endingStory));
+    document.location.replace('ending.html');
+    document.location.replace('ending.html');
   }	
   var character = scenario[group][event.target.class].character;	
   var newGroup = scenario[group][event.target.class].nextGroup;
