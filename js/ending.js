@@ -18,11 +18,11 @@ function endingChoices(){
 function checkHealth(){
   for(let i  = 0; i < team.length; i++){
     if(team[i].heartsNum === 0){
-      // textGeneration(` ${team[i].className.toUpperCase()} gave their life in service of the cause. In war sacrifices are necessary but as a team leader you should try to do better next time`);
+      // textGeneration(` ${team[i].className.toUpperCase()} gave their life in service of the cause. In war, sacrifices are necessary, but as a team leader you should try to do better next time`);
       deadMembers.push(team[i]);
     } 
     if (team[i].heartsNum === 1){
-      textGeneration(` ${team[i].className.toUpperCase()} was heavily injured in the fighting. You managed to get them out of the fight alive but their wounds will stay with them.`);
+      textGeneration(` ${team[i].className.toUpperCase()} was heavily injured in the fighting. You managed to get them out of the fight alive, but their wounds will stay with them.`);
       aliveTeam.push(team[i]);
     } 
     else if (team[i].heartsNum === 2) {
@@ -42,11 +42,11 @@ function partyDamageText(){
 }
 function endingText(){
   if(aliveTeam.length === 0){
-    textGeneration(`In your last moments alive you realize that you've made the wrong choices all along. Bleeding out on the ground you wish for just one more chance to retrieve the core but more imprortantly make it out with your whole team alive.....but wait is that possible?`);
+    textGeneration(`In your last moments alive, you realize that you've made the wrong choices all along. Bleeding out on the ground you wish for just one more chance to retrieve the core, but, more imprortantly, make it out with your whole team alive.....but wait, is that possible?`);
   } else if(aliveTeam.length === 1){
-    textGeneration(`You've barely managed to scrape by this mission, but at what cost? Your friends are all but gone. Knowing you could have made better decisions to keep your friends alive will stay with you. Was it all worth it in the end?`);
+    textGeneration(`You've barely managed to scrape by on this mission, but at what cost? Your friends are all but gone. Knowing you could have made better decisions to keep your friends alive will stay with you. Was it all worth it in the end?`);
   } else if(aliveTeam.length === 2){
-    textGeneration(`This mission was even harder than you could have imagined. You've retrieved the core but lost a friend and comrade along the way. The feeling of success and happiness is balanced against the regret of loss. Maybe, just maybe you could have made the correct choice back there.`);
+    textGeneration(`This mission was even harder than you could have imagined. You've retrieved the core but lost a friend and comrade along the way. The feeling of success and happiness is balanced against the regret of loss. Maybe, just maybe, you could have made the correct choice back there.`);
   } else if(aliveTeam.length === 3){
     textGeneration(`You and your team have retrieved the core and made it out alive. Your wildest dreams are about to come true as you join the technological society of the rich. You've proven yourself as a capabale leader and decision maker and have earned the right to stand at the top.`);
   }
