@@ -94,6 +94,7 @@ function renderStory(){
 
 //Event Handlers
 function handleClick(){
+function handleClick(){
   if(event.target) {
     if(decisionLayer === 0) {
       playSound('./mp3/decision2delay.mp3', 1);
@@ -114,7 +115,9 @@ function handleClick(){
   var newGroup = scenario[group][event.target.class].nextGroup;
   group = newGroup;
   decisionLayer++;
+
   var rng = Math.round((Math.random() * 1));
+  
   if(scenario[group][event.target.class].morality === 'B') {
     renderDamage(character);
     renderDamage(character);

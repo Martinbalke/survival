@@ -1,0 +1,264 @@
+body{
+	margin-left: 20vw;
+	margin-right: 20vw;
+	background-color: black;
+}
+
+#logoShape{
+	height: 30px;
+	width: 30px;
+	background: #F4F362;
+	clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)
+}
+
+#logo{
+    color: white;
+	display: flex;
+    padding: 5px;
+}
+
+#logo h1{
+	font-family: 'Oswald', sans-serif; 
+	font-size: 2em;
+	text-shadow: 2px 2px 10px #F4F362 , 1px 1px 3px rgba(43,218,147,1);
+}
+
+#logo p{
+	font-family: 'Oswald', sans-serif; 
+	font-size: .75em;
+	position: relative;
+	top: 30px;
+	right: 100px;	
+	text-shadow: 2px 2px 10px   #F4F362, 1px 1px 3px rgba(43,218,147,1);
+}
+
+#navBar{
+    height: 7vh;
+    background-image: url(../img/photo-1490971588422-52f6262a237a.jpeg);
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    box-shadow: 1px 1px 30px 0px rgba(200, 246, 232, .4);
+}
+
+#navBar ul{
+	display: flex;
+	align-items: flex-end;
+	padding: 5px;
+}
+
+#navBar a{
+    color: white;
+    text-decoration: none;
+    margin: 5px;
+    padding: 2px;
+    height: 30px;
+    line-height: 30px;
+}
+
+#navBar a:hover{
+	border-bottom: 2px solid #C8F6E8;
+}
+
+#navBar li{
+	text-shadow: 2px 2px 10px #F4F362 , 1px 1px 3px rgba(43,218,147,1);
+}
+
+#decision-tree p{
+    background-color: black;
+    border-radius: 1em;
+    position: absolute;
+    overflow: auto;
+    top: 13%;
+    left: 41%;
+    height: 16%;
+    width: 15%;
+    text-align: center;
+    font-weight: bold;
+    color: silver;
+    padding: 1.5em;
+}
+
+#decision-tree img{
+    width: 100%;
+    margin: 1.5em 0;
+}
+
+#buttons *{
+    position: absolute;
+    background: transparent;
+    height: 5em;
+    width: 5em;
+    border-radius: 5em;
+}
+
+/* Buttons */
+    #node3G7{
+        top: 13.3%;
+        left: 21.75%;
+    }
+    #node3N7{
+        top: 13.3%;
+        left: 28.4%;
+    }
+    #node3B7{
+        top: 13.3%;
+        left: 35%;
+    }
+    #node3G12{
+        top: 13.3%;
+        left: 61.5%;
+    }
+    #node3N12{
+        top: 13.3%;
+        left: 68.1%;
+    }
+    #node3B12{
+        top: 13.3%;
+        left: 74.75%;
+    }
+    #node3B4{
+        top: 26.75%;
+        left: 26.7%;
+    }
+    #node2B1{
+        top: 26.75%;
+        left: 35%;
+    }
+    #node2G3{
+        top: 26.75%;
+        left: 61.5%;
+    }
+    #node3G6{
+        top: 26.75%;
+        left: 69.8%;
+    }
+    #node3N4{
+        top: 40.2%;
+        left: 26.7%;
+    }
+    #node2N1{
+        top: 40.2%;
+        left: 35%;
+    }
+    #node2N3{
+        top: 40.2%;
+        left: 61.5%;
+    }
+    #node3N6{
+        top: 40.2%;
+        left: 69.8%;
+    }
+    #node3G4{
+        top: 53.7%;
+        left: 26.7%;
+    }
+    #node2G1{
+        top: 53.7%;
+        left: 35%;
+    }
+    #node1B0{
+        top: 53.7%;
+        left: 41.6%;
+    }
+    #node1N0{
+        top: 53.7%;
+        left: 48.25%;
+    }
+    #node1G0{
+        top: 53.7%;
+        left: 54.9%;
+    }
+    #node2B3{
+        top: 53.7%;
+        left: 61.5%;
+    }
+    #node3B6{
+        top: 53.7%;
+        left: 69.8%;
+    }
+    #node3B8{
+        top: 67.1%;
+        left: 21.75%;
+    }
+    #node3N8{
+        top: 67.1%;
+        left: 28.4%;
+    }
+    #node3G8{
+        top: 67.1%;
+        left: 35%;
+    }
+    #node3B11{
+        top: 67.1%;
+        left: 61.5%;
+    }
+    #node3N11{
+        top: 67.1%;
+        left: 68.1%;
+    }
+    #node3G11{
+        top: 67.1%;
+        left: 74.75%;
+    }
+    #node3G9{
+        top: 83.85%;
+        left: 35%;
+    }
+    #node2B2{
+        top: 83.85%;
+        left: 41.6%;
+    }
+    #node2N2{
+        top: 83.85%;
+        left: 48.25%;
+    }
+    #node2G2{
+        top: 83.85%;
+        left: 54.9%;
+    }
+    #node3B10{
+        top: 83.85%;
+        left: 61.5%;
+    }
+    #node3N9{
+        top: 97.3%;
+        left: 35%;
+    }
+    #node3N10{
+        top: 97.3%;
+        left: 61.5%;
+    }
+    #node3B5{
+        top: 100.6%;
+        left: 41.6%;
+    }
+    #node3N5{
+        top: 100.6%;
+        left: 48.25%;
+    }
+    #node3G5{
+        top: 100.6%;
+        left: 54.9%;
+    }
+    #node3B9{
+        top: 110.75%;
+        left: 35%;
+    }
+    #node3G10{
+        top: 110.75%;
+        left: 61.5%;
+    }
+/* End of Buttons */
+
+footer{
+	display: flex;
+	justify-content: center;
+}
+
+footer p{
+    margin-bottom: .5em;
+	font-size: .7em;
+    color: rgba(255,255,255,0.4);
+    opacity: .45;
+}
