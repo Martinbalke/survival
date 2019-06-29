@@ -10,6 +10,7 @@ Accent: font-family: 'Oswald', sans-serif; */
     50% { color: white }
     100% { color: red }
 }
+
 @keyframes alert2 { 
     0% { color: red }
     50% { color: white }
@@ -292,7 +293,7 @@ footer p{
 	margin: 5px;
 	font-size: .7em;
 	color: rgba(255,255,255,0.4);
-  opacity: .45;
+	opacity: .45;
 }
 
 #current-time {
@@ -313,6 +314,7 @@ footer p{
 	justify-content: space-between;
 	opacity: 0.8;
 }
+
 .class-container {
 	background-color: rgba(100, 0, 0, 0.4);
 	border: 1.5px dashed red;
@@ -324,16 +326,19 @@ footer p{
     justify-content: center;
 	overflow: hidden;
 }
+
 .HUD-info {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
 }
+
 .HUD-imgs {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
 }
+
 .class-name {
 	margin: 0;
 	font-size: 0.8em;
@@ -341,6 +346,7 @@ footer p{
 	color: red;
 	text-shadow: 1px 2px 4px black;
 }
+
 .character-bio {
 	margin: 0;
 	font-size: 0.8em;
@@ -348,6 +354,7 @@ footer p{
 	color: red;
 	text-shadow: 1px 2px 4px black;
 }
+
 .character-bio-details {
 	margin: 0 5px;
 	font-size: 5px;
@@ -355,6 +362,7 @@ footer p{
 	color: red;
 	text-shadow: 1px 2px 4px black;
 }
+
 .class-status {
 	margin: 0;
 	font-size: 0.8em;
@@ -362,6 +370,7 @@ footer p{
 	color: red;
 	text-shadow: 1px 2px 4px black;
 }
+
 .character-img {
 	border: 1.5px solid red;
 	width: 100%;
@@ -369,6 +378,7 @@ footer p{
 	max-width: 50px;
 	max-height: 50px;
 }
+
 .hearts-sprite {
 	margin: 0 -5px 0 0;
 	vertical-align: top;
@@ -377,6 +387,7 @@ footer p{
 	max-width: 50px;
 	max-height: 25px;
 }
+
 .autoplay {
 	display: none;
 }

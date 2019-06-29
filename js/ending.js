@@ -1,4 +1,5 @@
 'use strict';
+
 const divEL_endingText = document.getElementById('endingText');
 const story = localStorage.getItem('story');
 let team = localStorage.getItem('team');
