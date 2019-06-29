@@ -101,7 +101,7 @@ body{
 }
 #start{
 	background-image: url(../img/storybackground.jpeg);
-	background-position: 0% 95%;
+	background-position: 0% 94%;
 	background-repeat: no-repeat;
 	background-size: cover;
 }
@@ -156,12 +156,12 @@ body{
 footer{
 	clear: both;
 	text-align: center;
-	margin-top: 17em; 
+	margin-top: 11.9em; 
 }
 footer p{
 	margin: 5px;
 	font-size: .7em;
-	color: rgba(255,255,255,0.5);
+	color: rgba(255,255,255,0.4);
 }
 .autoplay {
 	display: none;
