@@ -155,4 +155,6 @@ footer p{
 	font-size: .7em;
 	 color: rgba(255,255,255,0.4);
 }
-
+.autoplay {
+	display: none;
+}
