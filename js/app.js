@@ -47,7 +47,6 @@ new Character('hacker', 'yuri', 'female', '19', 'Sit amet consectetur adipiscing
 
 // Event Handlers Start //
 function handleClick(){
-function handleClick(){
   if(event.target) {
     if(decisionLayer === 0) {
       playSound('./mp3/decision2delay.mp3', 1);
