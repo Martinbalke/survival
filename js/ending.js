@@ -15,7 +15,7 @@ function endingChoices(){
 function checkHealth(){
   for(let i  = 0; i < team.length; i++){
     if(team[i].heartsNum === 0){
-      textGeneration(`You made it out alive but unfortunately ${team[i].className} gave their life in service of the cause. In war sacrifices are necessary but as a team leader you should try to do better next time`);
+      textGeneration(` ${team[i].className.toUpperCase()} gave their life in service of the cause. In war sacrifices are necessary but as a team leader you should try to do better next time`);
     } 
     if (team[i].heartsNum === 1){
       textGeneration(` ${team[i].className.toUpperCase()} was heavily injured in the fighting. You managed to get them out of the fight alive but their wounds will stay with them.`);
@@ -30,7 +30,7 @@ function checkHealth(){
 
 function endingText(){
   if(aliveTeam.length === 0){
-    textGeneration(`No one alive`);
+    textGeneration(``);
   } else if(aliveTeam.length === 1){
     textGeneration(`One person alive`);
   } else if(aliveTeam.length === 2){

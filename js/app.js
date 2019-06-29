@@ -92,25 +92,25 @@ function renderStory(){
 
 //Event Handlers
 function handleClick(){
-  if(decisionLayer === 2){
-    localStorage.setItem('team',JSON.stringify(teamMembers));
-    endingStory = scenario[group][event.target.class].promptText;
-    localStorage.setItem('story', JSON.stringify(endingStory));
-    document.location.replace('ending.html');
-  }
-  var character = scenario[group][event.target.class].character;
   event.preventDefault();
+  var character = scenario[group][event.target.class].character;
   generateStoryNode(scenario[group][event.target.class].promptText);
-  var newGroup = scenario[group][event.target.class].nextGroup;
-  group = newGroup;
-  decisionLayer++;
-
   if(scenario[group][event.target.class].morality === 'B') {
     renderDamage(character);
     renderDamage(character);
   } else if(scenario[group][event.target.class].morality === 'N') {
     renderDamage(character);
   }
+  if(decisionLayer === 2){
+    localStorage.setItem('team',JSON.stringify(teamMembers));
+    endingStory = scenario[group][event.target.class].promptText;
+    localStorage.setItem('story', JSON.stringify(endingStory));
+    document.location.replace('ending.html');
+  }
+  var newGroup = scenario[group][event.target.class].nextGroup;
+  group = newGroup;
+  
+  decisionLayer++;
   renderStory();
 }
 
