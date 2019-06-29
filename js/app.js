@@ -47,7 +47,9 @@ new Character('hacker', 'yuri', 'female', '19', 'Sit amet consectetur adipiscing
 
 // Event Handlers Start //
 function handleClick(){
-function handleClick(){
+  event.preventDefault();
+  var character = scenario[group][event.target.class].character;
+  generateStoryNode(scenario[group][event.target.class].promptText);
   if(event.target) {
     if(decisionLayer === 0) {
       playSound('./mp3/decision2delay.mp3', 1);
@@ -55,28 +57,12 @@ function handleClick(){
     } else if(decisionLayer === 1) {
       playSound('./mp3/decision3delay.mp3', 1);
     }
-    if(decisionLayer === 2){
-      localStorage.setItem('team',JSON.stringify(teamMembers));
-      endingStory = scenario[group][event.target.class].promptText;
-      localStorage.setItem('story', JSON.stringify(endingStory));
-      document.location.replace('ending.html');
-    }
   }
-  var character = scenario[group][event.target.class].character;
-  event.preventDefault();
-  generateStoryNode(scenario[group][event.target.class].promptText);
-  var newGroup = scenario[group][event.target.class].nextGroup;
-  group = newGroup;
-  decisionLayer++;
-
   var rng = Math.round((Math.random() * 1));
   
   if(scenario[group][event.target.class].morality === 'B') {
     renderDamage(character);
     renderDamage(character);
-    console.log(teamMembers[0].heartsNum);
-    console.log(teamMembers[1].heartsNum);
-    console.log(teamMembers[2].heartsNum);
     if(teamMembers[2].heartsNum !== 0 & teamMembers[1].heartsNum !== 0) {
       if(rng === 1) {
         playSound('./mp3/backupmale.mp3', 0.5);
@@ -95,7 +81,6 @@ function handleClick(){
       playSound('./mp3/backupmale.mp3', 0.5);
     }
   } else if(scenario[group][event.target.class].morality === 'N') {
-    console.log(character);
     renderDamage(character);
     for(var i = 0; i < teamMembers.length; i ++) { // loops through teamMembers Array
       if(character === teamMembers[i].className) { // checks if there is a matching character
@@ -127,6 +112,19 @@ function handleClick(){
       }
     }
   }
+  if(decisionLayer === 2){
+    localStorage.setItem('team',JSON.stringify(teamMembers));	    localStorage.setItem('team',JSON.stringify(teamMembers));
+    endingStory = scenario[group][event.target.class].promptText;	    endingStory = scenario[group][event.target.class].promptText;
+    localStorage.setItem('story', JSON.stringify(endingStory));	    localStorage.setItem('story', JSON.stringify(endingStory));
+    document.location.replace('ending.html');	    document.location.replace('ending.html');
+  }	
+  var character = scenario[group][event.target.class].character;	
+  var newGroup = scenario[group][event.target.class].nextGroup;
+  group = newGroup;
+  
+
+ 
+  decisionLayer++;
   renderStory();
 }
 // Event Handlers End //
