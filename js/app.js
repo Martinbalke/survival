@@ -116,7 +116,7 @@ function handleClick(){
     } else if(decisionLayer === 1) {
       playSound('./mp3/decision3delay.mp3', 1);
     }
- 
+  }
   var newGroup = scenario[group][event.target.class].nextGroup;
   group = newGroup;
   
