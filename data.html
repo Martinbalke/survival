@@ -6,27 +6,28 @@
         <link href="css/reset.css" type="text/css" rel="stylesheet">
         <link href="css/data.css" type="text/css" rel="stylesheet">
     </head>
+    
     <body>
         <header>
-            <nav id="navBar">
-                <div id="logo">
-                        <section id="logoShape"></section>
+            <section id="navBar">
+                <article id="logo">
+                    <section id="logoShape"></section>
                     <h1>悪私 2099</h1>
                     <p>Aku Watashi</p>
 
-                </div>
+                </article>
                 <ul>
                     <a href="./about.html"><li>About Us</li></a>
                     <a href="./index.html"><li>Return to Game</li></a>
                     <a href="./story.html"><li>Background Story</li></a>
                 </ul>
-            </nav>
+            </section>
         </header>
-        <main>
 
+        <main>
             <section id="decision-tree">
-                <p>Click a decision node.</p>
-                <img src="img/decision-tree.png" alt="decision tree">
+                <p id="text">Click a decision node.</p>
+                <img id="tree" src="img/decision-tree.png" alt="decision tree">
                 <article id="buttons">
                     <button id="node3G7"></button>
                     <button id="node3N7"></button>
@@ -69,17 +70,12 @@
                     <button id="node3G10"></button>
                 </article>
             </section>
-
-            <section>
-                <article>
-                    <h2></h2>
-                    <p></p>
-                </article>
-            </section>
-
         </main>
+        
         <footer>
             <p>Copyright &copy; Team Aku Watashi 2019</p>
         </footer>
+        <script src="js/data.js"></script>
+        <script src="js/story.js"></script>
     </body>
 </html>

@@ -1,7 +1,7 @@
 'use strict';
 
-//Global Variables
-
+// Global Variables Start //
+var backgroundMusic = document.getElementById('background-music');
 var divEl_Questions = document.getElementById('questions');
 var teamMembers = []; // array that stores all Characters with their corresponding object properties
 var classContainer = document.getElementsByClassName('class-container');
@@ -18,9 +18,9 @@ var sectionEl_Questions = document.getElementById('questions');
 var group = 0;
 var decisionLayer = 0;
 var endingStory;
+// Global Variable End //
 
-//Object Constructors 
-
+// Object Constructor Start //
 function Character(className, name, gender, age, analysis) { // constructor function for game characters
   this.className = className;
   this.name = name;
@@ -37,12 +37,103 @@ function Character(className, name, gender, age, analysis) { // constructor func
   this.heartsNum = 2;
   teamMembers.push(this);
 }
+// Object Constructor End //
 
-//Object Instances
-
+// Object Instances Start //
 new Character('soldier', 'eiji', 'male', '29', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Posuere sollicitudin aliquam ultrices sagittis orci a scelerisque tincidunt vitae.');
 new Character('engineer', 'naruko', 'male', '32', 'Venenatis tellus in metus vulputate eu scelerisque felis imperdiet proin. Imperdiet sed euismod nisi porta lorem mollis. Sapien pellentesque habitant morbi tristique senectus et netus et malesuada.');
 new Character('hacker', 'yuri', 'female', '19', 'Sit amet consectetur adipiscing elit ut aliquam purus sit amet. Ullamcorper eget nulla facilisi etiam. Mattis vulputate enim nulla aliquet porttitor lacus luctus. Convallis convallis tellus id interdum.');
+// Object Instances End //
+
+// Event Handlers Start //
+function handleClick(){
+  event.preventDefault();
+  var character = scenario[group][event.target.class].character;
+  generateStoryNode(scenario[group][event.target.class].promptText);
+  if(event.target) {
+    if(decisionLayer === 0) {
+      playSound('./mp3/decision2delay.mp3', 1);
+      document.getElementById('story').style.backgroundImage = "url('./img/core.gif')";
+    } else if(decisionLayer === 1) {
+      playSound('./mp3/decision3delay.mp3', 1);
+      document.getElementById('story').style.backgroundImage = "url('./img/escape.gif')";
+    }
+  }
+  var rng = Math.round((Math.random() * 1));
+  
+  if(scenario[group][event.target.class].morality === 'B') {
+    renderDamage(character);
+    renderDamage(character);
+    if(teamMembers[2].heartsNum !== 0 & teamMembers[1].heartsNum !== 0) {
+      if(rng === 1) {
+        playSound('./mp3/backupmale.mp3', 0.5);
+      } else {
+        playSound('./mp3/backupfemale.mp3', 0.5);
+      }
+    } else if(teamMembers[2].heartsNum !== 0 & teamMembers[0].heartsNum !== 0) {
+      if(rng === 1) {
+        playSound('./mp3/backupmale.mp3', 0.5);
+      } else {
+        playSound('./mp3/backupfemale.mp3', 0.5);
+      }
+    } else if(teamMembers[0].heartsNum === 0 & teamMembers[1].heartsNum === 0) {
+      playSound('./mp3/backupfemale.mp3', 0.5);
+    } else if(teamMembers[2].heartsNum === 0) {
+      playSound('./mp3/backupmale.mp3', 0.5);
+    }
+  } else if(scenario[group][event.target.class].morality === 'N') {
+    renderDamage(character);
+    for(var i = 0; i < teamMembers.length; i ++) { // loops through teamMembers Array
+      if(character === teamMembers[i].className) { // checks if there is a matching character
+        if(teamMembers[i].heartsNum !== 0) {
+          if(character === 'hacker') {
+            playSound('./mp3/medicfemale.mp3', 0.5);
+          } else {
+            playSound('./mp3/medicmale.mp3', 0.5);
+          }
+        } else {
+          if(teamMembers[2].heartsNum !== 0 & teamMembers[1].heartsNum !== 0) {
+            if(rng === 1) {
+              playSound('./mp3/backupmale.mp3', 0.5);
+            } else {
+              playSound('./mp3/backupfemale.mp3', 0.5);
+            }
+          } else if(teamMembers[2].heartsNum !== 0 & teamMembers[0].heartsNum !== 0) {
+            if(rng === 1) {
+              playSound('./mp3/backupmale.mp3', 0.5);
+            } else {
+              playSound('./mp3/backupfemale.mp3', 0.5);
+            }
+          } else if(teamMembers[0].heartsNum === 0 & teamMembers[1].heartsNum === 0) {
+            playSound('./mp3/backupfemale.mp3', 0.5);
+          } else if(teamMembers[2].heartsNum === 0) {
+            playSound('./mp3/backupmale.mp3', 0.5);
+          }
+        }
+      }
+    }
+  }
+  if(decisionLayer === 2){
+    localStorage.setItem('team',JSON.stringify(teamMembers));	    
+    localStorage.setItem('team',JSON.stringify(teamMembers));
+    endingStory = scenario[group][event.target.class].promptText;
+    endingStory = scenario[group][event.target.class].promptText;
+    localStorage.setItem('story', JSON.stringify(endingStory));
+    localStorage.setItem('story', JSON.stringify(endingStory));
+    document.location.replace('ending.html');
+    document.location.replace('ending.html');
+  }	
+  var character = scenario[group][event.target.class].character;	
+  var newGroup = scenario[group][event.target.class].nextGroup;
+  group = newGroup;
+ 
+  decisionLayer++;
+  renderStory();
+}
+// Event Handlers End //
+
+
+// Helper functions Start //
 
 function renderCharacters() {
   for(var i = 0; i < teamMembers.length; i++) {
@@ -66,6 +157,7 @@ function renderDamage(className) { // parameter is string with class name of cha
         classStatus[i].style.animationIterationCount = 'infinite';
         teamMembers[i].heartsNum --; // subtract health from the character
       }
+
       if(teamMembers[i].heartsNum === 0 ) { // renders unique style for when the character dies
         classContainer[i].style.backgroundColor = 'rgba(50, 50, 50, 0.4)';
         classContainer[i].style.borderColor = 'rgb(150, 150, 150)';
@@ -90,33 +182,19 @@ function renderStory(){
   generateChoices();
 }
 
-//Event Handlers
-function handleClick(){
-  if(decisionLayer === 2){
-    endingStory = scenario[group][event.target.class].promptText;
-    localStorage.setItem('story', JSON.stringify(endingStory));
-    document.location.replace('ending.html');
-  }
-  var character = scenario[group][event.target.class].character;
-  event.preventDefault();
-  generateStoryNode(scenario[group][event.target.class].promptText);
-  var newGroup = scenario[group][event.target.class].nextGroup;
-  group = newGroup;
-  decisionLayer++;
-
-  if(scenario[group][event.target.class].morality === 'B') {
-    renderDamage(character);
-    renderDamage(character);
-  } else if(scenario[group][event.target.class].morality === 'N') {
-    renderDamage(character);
-  }
-  renderStory();
-}
-
-//Helper functions
-
 function capitalizeFirstLetter(string) { // capitalizes the first letter of a string
   return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+function playSound(source, volume) {
+  var audio = new Audio(source);
+  audio.loop = false;
+  audio.volume = volume;
+  audio.play();
+}
+
+function defaultMusicSettings() {
+  backgroundMusic.volume = 0.2;
 }
 
 function renderDateTime() {
@@ -141,6 +219,11 @@ function renderDateTime() {
   setTimeout(renderDateTime, 1000);
 }
 
+function generateFirstStory(){
+  let pEl = document.createElement('p');
+  pEl.innerText = `The year is 2099. You are leading a team of mercenaries recruited by the notorious crime syndicate known as "Aku Watashi." They are on a high-stakes mission to steal a fusion core that is worth billions on the black market. You must guide the team, utilizing the skill sets of a soldier, an engineer, and a hacker to make your way through a high security facility. This will likely turn into a fight for survival as you will encounter unpredictable situations and unknown enemy opposition. Smart decision making is required to help this team make it safely through the facility with the core intact.`;
+  articleEl.appendChild(pEl);
+}
 function generateStoryNode(storyNode){
   articleEl.innerHTML = '';
   var pEl = document.createElement('p');
@@ -166,16 +249,17 @@ function generateChoices(){
   }
 }
 
-/* TODO: randomize order of decisions */
-function randomizer(min, max){
-  return Math.floor(Math.random() * (max - min + 1) * min);
-}
+// Helper Functions End //
 
-//Event Listeners
 
+// Event Listener Start //
 divEl_Questions.addEventListener('click', handleClick);
+// Event Listener End //
 
-//Function calls
+// Function Calls Start //
 renderStory();
 renderCharacters();
 renderDateTime();
+generateFirstStory();
+defaultMusicSettings();
+// Function Calls End //
