@@ -90,7 +90,3 @@ new StoryNode('G', 12, `The soldier is equipped with a full arsenal of weapons a
 new StoryNode('N', 12, `The engineer carries a cloaking device that will allow the team to leave the building stealthily.  Do you utilize the device?`, 'final', `The engineer attempts to activate the cloaking device but finds its electronics disabled. It is likely jammed by an electronic warfare device. The hacker hacks into the device and manages to override the jamming signal. The cloaking device is successfully activated. However, the cloaking device eventually overheats, causing second degree burns. The engineer suffers half damage.`, 'engineer');
 
 new StoryNode('B', 12, `The hacker is contacted by the unknown source who suggests that they escape using the nearest ventilation system. Do you once again, trust the unknown source and enter the ventilation system?`, 'final', `Using the multi-tool, the engineer quickly pries open the ventilation grill of the nearest vent and jumps in feet first. The soldier enters second, but the hacker was not quick enough to follow and suffers fatal wounds as the overwhelming force opens fire. As the soldier and engineer traverses the ventilation system, they discover a shaft, which opens to the same access tunnel that was used to enter the facility.`, 'hacker');
-
-
-
-
