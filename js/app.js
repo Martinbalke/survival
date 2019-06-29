@@ -2,7 +2,6 @@
 
 //Global Variables
 
-var hero = document.getElementById('story');
 var backgroundMusic = document.getElementById('background-music');
 var divEl_Questions = document.getElementById('questions');
 var teamMembers = []; // array that stores all Characters with their corresponding object properties
@@ -18,7 +17,6 @@ var sectionEl_questionPrompt = document.getElementById('questionPrompt');
 var articleEl = document.getElementById('article');
 var sectionEl_Questions = document.getElementById('questions');
 var group = 0;
-var totalMales = 2;
 var decisionLayer = 0;
 var endingStory;
 
